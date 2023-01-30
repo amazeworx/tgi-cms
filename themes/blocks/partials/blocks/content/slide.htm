@@ -1,0 +1,20 @@
+{% set image = content.image != '' ? (content.image | media ):image %}
+<div class="swiper-slide min-h-[600px] xl:min-h-[900px] flex items-center bg-cover" style="background-image: url({{ image }});">
+  <div class="container mx-auto px-4 xl:px-6">
+  <div class="flex h-full items-center">
+    <div class="w-1/2 text-white">
+      {% if content.headline %}
+        <h2 class="font-extrabold text-[48px] leading-tight">{{ content.headline }}</h2>
+      {% endif %}
+      {% if content.sub_headline %}
+      <p class="text-[24px] leading-snug mt-4">{{ content.sub_headline }}</p>
+      {% endif %}
+      {% if content.button_link %}
+      <div class="mt-8">
+        <a href="{{ content.button_link }}" class="inline-block bg-[#46A941] text-white text-lg px-8 py-3 rounded-full">{{ content.button_text }}</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+[staticPage]
+==
+<!DOCTYPE html>
+<html lang="{{ this.page.activeLocale ?: 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ this.page.title }}</title>
+
+    {#- Awesome Tailwind JIT Cdn -#}
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <!-- Specify a custom TailwindCSS configuration -->
+    <script type="module" >
+      import tailwindcssTypography from 'https://cdn.skypack.dev/@tailwindcss/typography';
+      import tailwindcssAspectRatio from 'https://cdn.skypack.dev/@tailwindcss/aspect-ratio';
+      window.tailwindConfig = {
+        plugins: [
+          tailwindcssTypography,
+          tailwindcssAspectRatio
+        ]
+      };
+      window.tailwindCSS.refresh();
+    </script>
+    <script type="tailwind-config">
+      window.tailwindConfig
+    </script>
+
+    <style type="postcss">
+    ::selection {
+        @apply text-white bg-blue-300;
+    }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    {#- Material icons -#}
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ 'assets/styles.css'|theme }}" />
+    {% styles %}
+</head>
+<body>
+  {#
+    # Reapeater definitions
+    #}
+  {repeater
+    name="sections"
+    groups="themes/blocks/meta/sections.yaml"
+    tab="Blocks"
+    prompt="Add new section"
+    style="accordion"
+  }
+    {variable name="_dummy" type="text"}{/variable}
+  {/repeater}
+
+  {% partial 'header' %}
+
+  <main>
+    {#
+      # Rendering blocks
+      #}
+    {% for section in sections %}
+        <!-- must reside in partials/blocks/{name_of_group} -->
+        {% partial 'blocks/' ~ section._group data=section %}
+    {% endfor %}
+
+    <div class="container px-6 mx-auto">
+      <div class="py-6 prose max-w-none">
+        {% page %}
+      </div>
+      </div>
+
+  </main>
+
+  {% partial 'footer' %}
+  {% scripts %}
+</body>
+</html>

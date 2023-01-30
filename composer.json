@@ -40,7 +40,8 @@
         "marcomessa/wn-vite-plugin": "^1.0",
         "winter/wn-blog-plugin": "^2.0",
         "winter/wn-pages-plugin": "^2.0",
-        "winter/wn-user-plugin": "^2.0"
+        "winter/wn-user-plugin": "^2.0",
+        "hounddd/wn-blocks-theme": "^1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.8",
