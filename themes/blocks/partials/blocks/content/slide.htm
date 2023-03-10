@@ -1,17 +1,17 @@
 {% set image = content.image != '' ? (content.image | media ):image %}
-<div class="swiper-slide min-h-[600px] xl:min-h-[900px] flex items-center bg-cover" style="background-image: url({{ image }});">
-  <div class="container mx-auto px-4 xl:px-6">
-  <div class="flex h-full items-center">
-    <div class="w-1/2 text-white">
+<div class="swiper-slide min-h-[600px] flex items-center bg-cover" style="background-image: url({{ image }});">
+  <div class="container mx-auto max-w-screen-xl px-8 mx-auto h-full relative z-auto">
+  <div class="flex h-full items-end">
+    <div class="text-white p-12 bg-black/60 max-w-3xl mb-12 text-left rounded-2xl">
       {% if content.headline %}
-        <h2 class="font-extrabold text-[48px] leading-tight">{{ content.headline }}</h2>
+        <h2 class="font-extrabold text-[52px] leading-[1.2em] mb-4">{{ content.headline }}</h2>
       {% endif %}
       {% if content.sub_headline %}
-      <p class="text-[24px] leading-snug mt-4">{{ content.sub_headline }}</p>
+      <p class="text-3xl">{{ content.sub_headline }}</p>
       {% endif %}
       {% if content.button_link %}
       <div class="mt-8">
-        <a href="{{ content.button_link }}" class="inline-block bg-[#46A941] text-white text-lg px-8 py-3 rounded-full">{{ content.button_text }}</a>
+        <a href="{{ content.button_link }}" class="btn btn-lg rounded-full bg-tgi-green px-10 hover:bg-green-500">{{ content.button_text }}</a>
       </div>
       {% endif %}
     </div>

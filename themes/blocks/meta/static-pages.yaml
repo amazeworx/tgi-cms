@@ -1,4 +1,9 @@
 static-pages:
     homepage: {  }
-    index: {  }
-    content-blocks: {  }
+    about: {  }
+    operation-services: {  }
+    corporate-activities: {  }
+    annual-reports: {  }
+    news: {  }
+    procurement: {  }
+    contact-us: {  }

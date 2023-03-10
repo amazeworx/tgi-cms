@@ -1,0 +1,7 @@
+[viewBag]
+==
+<ul tabIndex="0" class="{{ class }}">
+    {% for item in items %}
+      <li><a href="{{ item.url }}" class="whitespace-nowrap active:bg-tgi-darkblue">{{ item.title }}</a></li>
+    {% endfor %}
+</ul>

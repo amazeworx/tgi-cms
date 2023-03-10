@@ -41,7 +41,8 @@
         "winter/wn-blog-plugin": "^2.0",
         "winter/wn-pages-plugin": "^2.0",
         "winter/wn-user-plugin": "^2.0",
-        "hounddd/wn-blocks-theme": "^1.2"
+        "hounddd/wn-blocks-theme": "^1.2",
+        "winter/wn-translate-plugin": "^2.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.8",

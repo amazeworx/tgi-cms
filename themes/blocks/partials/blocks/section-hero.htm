@@ -47,8 +47,8 @@
  #}
 {% spaceless %}
 <section>
-  <div class="swiper">
-    <div class="swiper-wrapper max-h-[900px]">
+  <div class="swiper h-[85vh]">
+    <div class="swiper-wrapper">
       {% for block in content %}
           {% set group = block._group %}
           {% partial 'blocks/content/'~ group ~'.htm' content=block %}
@@ -62,7 +62,8 @@
   </div>
   <script>
   const swiper = new Swiper('.swiper', {
-    loop: true,
+    loop: false,
+    watchOverflow: true,
     pagination: {
       el: '.swiper-pagination',
     },

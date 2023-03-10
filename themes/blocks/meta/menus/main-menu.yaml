@@ -1,9 +1,13 @@
 items:
     -
         title: 'About Us'
-        type: url
-        url: '#'
+        nesting: 0
+        type: static-page
+        url: null
         code: ''
+        reference: about
+        cmsPage: null
+        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -11,72 +15,288 @@ items:
         items:
             -
                 title: 'Our Business'
+                nesting: null
                 type: url
-                url: '#'
+                url: '/about#our-business'
                 code: ''
+                reference: null
+                cmsPage: null
+                replace: null
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
                 title: 'Vision & Mission'
+                nesting: null
                 type: url
-                url: '#'
+                url: '/about#vision-mission'
                 code: ''
+                reference: null
+                cmsPage: null
+                replace: null
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
                 title: Shareholder
+                nesting: null
                 type: url
-                url: /
+                url: '/about#shareholders'
                 code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Top Management'
+                nesting: null
+                type: url
+                url: '/about#top-management'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Corporate Identity'
+                nesting: null
+                type: url
+                url: '/about#corporate-identity'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Corporate Culture'
+                nesting: null
+                type: url
+                url: '/about#corporate-culture'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
     -
         title: 'Operation & Services'
-        type: url
-        url: '#'
+        nesting: 0
+        type: static-page
+        url: null
         code: ''
+        reference: operation-services
+        cmsPage: null
+        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
+        items:
+            -
+                title: Overview
+                nesting: null
+                type: url
+                url: '/operation-services#overview'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Gas Pipeline System'
+                nesting: null
+                type: url
+                url: '/operation-services#gas-pipeline-system'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Pipeline Information'
+                nesting: null
+                type: url
+                url: '/operation-services#pipeline-information'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
     -
         title: 'Corporate Activities'
+        nesting: null
         type: url
-        url: '#'
+        url: /corporate-activities
         code: ''
+        reference: null
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
+        items:
+            -
+                title: 'Good Corporate Governance (GCG)'
+                nesting: null
+                type: url
+                url: '/corporate-activities#gcg'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Health Safety Security & Environment (HSSE)'
+                nesting: null
+                type: url
+                url: '/corporate-activities#hsse'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Corporate Social Responsibility (CSR)'
+                nesting: null
+                type: url
+                url: '/corporate-activities#csr'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
     -
         title: 'Investor Relations'
+        nesting: null
         type: url
         url: '#'
         code: ''
+        reference: null
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
+        items:
+            -
+                title: 'Annual Reports'
+                nesting: 0
+                type: static-page
+                url: null
+                code: ''
+                reference: annual-reports
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'How to Become Our Customer (SRF)'
+                nesting: null
+                type: url
+                url: '#'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Customer Survey Index'
+                nesting: null
+                type: url
+                url: '#'
+                code: ''
+                reference: null
+                cmsPage: null
+                replace: null
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
     -
         title: Information
+        nesting: null
         type: url
         url: '#'
         code: ''
+        reference: null
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
+        items:
+            -
+                title: News
+                nesting: 0
+                type: static-page
+                url: null
+                code: ''
+                reference: news
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Procurement
+                nesting: 0
+                type: static-page
+                url: null
+                code: ''
+                reference: procurement
+                cmsPage: null
+                replace: 0
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
     -
         title: Contact
-        type: url
-        url: '#'
+        nesting: 0
+        type: static-page
         code: ''
+        reference: contact-us
+        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''

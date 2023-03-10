@@ -3,7 +3,7 @@ import liveReload from "vite-plugin-live-reload";
 
 Dotenv.config();
 
-const ASSET_URL = process.env.ASSET_URL || "http://localhost:3000";
+const ASSET_URL = process.env.ASSET_URL || "http://localhost:3003";
 const VITE_INPUT = process.env.VITE_INPUT || "resources/js/app.js";
 
 export default ({ command }) => {
@@ -20,7 +20,7 @@ export default ({ command }) => {
     },
     server: {
       strictPort: true,
-      port: 3000,
+      port: 3003,
     },
     resolve: {
       extensions: [".js", ".mjs"],
