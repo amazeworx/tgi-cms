@@ -1,8 +1,8 @@
 {% set image = content.image != '' ? (content.image | media ):image %}
-<div class="swiper-slide min-h-[600px] flex items-center bg-cover" style="background-image: url({{ image }});">
+<div class="swiper-slide h-screen flex items-center bg-cover" style="background-image: url({{ image }});">
   <div class="container mx-auto max-w-screen-xl px-8 mx-auto h-full relative z-auto">
   <div class="flex h-full items-end">
-    <div class="text-white p-12 bg-black/60 max-w-3xl mb-12 text-left rounded-2xl">
+    <div class="text-white p-12 bg-black/60 max-w-3xl mb-20 text-left rounded-2xl">
       {% if content.headline %}
         <h2 class="font-extrabold text-[52px] leading-[1.2em] mb-4">{{ content.headline }}</h2>
       {% endif %}

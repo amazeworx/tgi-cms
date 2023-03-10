@@ -226,27 +226,14 @@ items:
                     isExternal: '0'
             -
                 title: 'How to Become Our Customer (SRF)'
-                nesting: null
                 type: url
-                url: '#'
+                url: /become-our-customer
                 code: ''
-                reference: null
-                cmsPage: null
-                replace: null
                 viewBag:
-                    isHidden: '0'
-                    cssClass: ''
-                    isExternal: '0'
-            -
-                title: 'Customer Survey Index'
-                nesting: null
-                type: url
-                url: '#'
-                code: ''
-                reference: null
-                cmsPage: null
-                replace: null
-                viewBag:
+                    locale:
+                        id:
+                            title: ''
+                            url: ''
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
@@ -294,8 +281,10 @@ items:
         title: Contact
         nesting: 0
         type: static-page
+        url: null
         code: ''
         reference: contact-us
+        cmsPage: null
         replace: 0
         viewBag:
             isHidden: '0'
