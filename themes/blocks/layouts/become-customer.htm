@@ -1,47 +1,21 @@
 [staticPage]
-useContent = 1
+useContent = 0
 default = 0
 
 [staticMenu]
 code = "main-menu"
 ==
-<!DOCTYPE html>
-<html lang="{{ this.page.activeLocale ?: 'en' }}" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ this.page.title }}</title>
-
-    <style type="postcss">
-    ::selection {
-        @apply text-white bg-blue-300;
-    }
-    </style>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-    <script src="{{ 'assets/js/app.js'|theme }}"></script>
-    <link rel="stylesheet" href="{{ 'assets/css/app.css'|theme }}" />
-    <link rel="stylesheet" href="{{ 'assets/styles.css'|theme }}" />
-    {% styles %}
-</head>
+{% partial 'head' %}
 <body>
   {#
     # Repeater definitions
     #}
   {repeater
     name="sections"
-    groups="themes/blocks/meta/sections.yaml"
+    groups="themes/blocks/meta/sections/become-customer/sections-become-customer.yaml"
     tab="Blocks"
     prompt="Add new section"
-    style="accordion"
+    style="collapsed"
   }
     {variable name="_dummy" type="text"}{/variable}
   {/repeater}
@@ -54,22 +28,15 @@ code = "main-menu"
       #}
     {% for section in sections %}
         <!-- must reside in partials/blocks/{name_of_group} -->
-        {% partial 'blocks/' ~ section._group data=section %}
+        {% partial 'blocks/become-customer/' ~ section._group data=section %}
     {% endfor %}
 
-    <div class="relative min-h-[400px] bg-tgi-darkblue flex flex-col justify-end">
-      <div class="text-center pb-16 relative z-10">
-        <h1 class="text-white text-5xl font-extrabold">Become Our Customer</h1>
-      </div>
-      <img src="{{ 'assets/images/banner/page-banner-02.jpg'|theme }}" alt="" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay -z-0" />
-    </div>
-
-    <section id="become-customer" class="py-24 scroll-mt-24">
-      <div class="container px-8 max-w-screen-xl mx-auto">
-        <div class="flex">
-          <div class="w-5/11">
-            <h2 class="text-4xl font-bold text-tgi-darkblue mb-8">Business Concept</h2>
-            <div class="prose text-justify">
+    {# <section id="become-customer" class="py-10 pb-16 scroll-mt-20 lg:pt-12 lg:pb-20 xl:py-16 2xl:py-24 xl:scroll-mt-16">
+      <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
+        <div class="flex flex-col gap-y-6 lg:flex-row">
+          <div class="lg:w-6/12 xl:w-5/11 order-2 lg:order-1">
+            <h2 class="text-3xl md:text-4xl font-bold text-tgi-darkblue mb-4 lg:mb-8">Business Concept</h2>
+            <div class="prose">
               <p>
                 The review and selection process for a potential customer is open, transparent
                 and straightforward. TGI will study your needs and the feasibility of delivery,
@@ -87,7 +54,7 @@ code = "main-menu"
                 <li>Interim Emergency Control.</li>
               </ol>
             </div>
-            <div class="prose text-justify mt-10">
+            <div class="prose mt-10">
               <h3 class="text-2xl font-bold text-tgi-green mb-4">Service Request Form</h3>
               <p>
                 In order to become our customer, please download and fill our "Service Request
@@ -118,12 +85,12 @@ code = "main-menu"
               </div>
             </div>
           </div>
-          <div class="w-6/11 pl-16">
-            <img src="{{ 'assets/images/content/businessconcept.png'|theme }}" alt="" class="rounded-[48px]" />
+          <div class="lg:w-6/12 xl:w-6/11 lg:pl-6 xl:pl-16 order-1 lg:order-2">
+            <img src="{{ 'assets/images/content/businessconcept.png'|theme }}" alt="" class="rounded-[48px] mx-auto" />
           </div>
         </div>
       </div>
-    </section>
+    </section> #}
 
   </main>
 

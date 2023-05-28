@@ -1,0 +1,37 @@
+==
+{#
+ # Initialize variables
+ #}
+{% set sectionId = data.sectionId != '' ? data.sectionId : '' %}
+{% set information = data.information != '' ? data.information:[] %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section id="{{ sectionId }}" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-white">
+  <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
+    {% if data.headline %}
+      <h2 class="text-3xl md:text-4xl text-center font-bold text-tgi-darkblue mb-12">
+        {{ data.headline }}
+      </h2>
+    {% endif %}
+    {% if data.information %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 2xl:gap-16">
+      {% for block in information %}
+        <div class="bg-white rounded-2xl border-t-2 border-r-4 border-b-8 border-l-2 border-tgi-amber p-6 md:p-8">
+          {% if block.title %}
+          <h5 class="text-2xl text-tgi-green font-bold mb-4">{{ block.title }}</h5>
+          {% endif %}
+          {% if block.content %}
+          <div class="prose">
+            {{ block.content | raw }}
+          </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endspaceless %}

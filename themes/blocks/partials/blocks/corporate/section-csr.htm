@@ -1,0 +1,95 @@
+==
+{#
+ # Initialize variables
+ #}
+{% set sectionId = data.sectionId != '' ? data.sectionId : '' %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section id="{{ sectionId }}"  class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-slate-100">
+  <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
+    <div class="flex flex-col gap-8 md:flex-row xl:gap-16">
+      <div class="md:w-3/5 xl:w-1/2 xl:pt-4 order-2 md:order-1">
+        {% if data.headline %}
+        <h2 class="text-3xl lg:text-4xl font-bold text-tgi-darkblue mb-4">{{ data.headline }}</h2>
+        {% endif %}
+        {% if data.subheadline %}
+        <h3 class="text-tgi-green font-bold text-lg lg:text-xl mb-4">
+          {{ data.subheadline }}
+        </h3>
+        {% endif %}
+        {% if data.introContent %}
+        <div class="prose mt-4 text-justify">
+          {{ data.introContent | raw }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="md:w-2/5 xl:w-1/2 order-1 md:order-2">
+        {% if data.image %}
+        <div class="aspect-w-1 aspect-h-1">
+          <img src="{{ data.image | media }}" alt="" class="rounded-xl lg:rounded-2xl xl:rounded-[48px] w-full h-full object-cover" />
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-y-6 lg:flex-row mt-10 lg:mt-12 xl:mt-24">
+      <div class="lg:w-1/3">
+        {% if data.sectionHeadline %}
+        <h2 class="text-2xl md:text-3xl text-left font-bold text-tgi-green mb-6 lg:pt-8">
+          {{ data.sectionHeadline }}
+        </h2>
+        {% endif %}
+        {% if data.sectionIntroContent %}
+        <div class="prose text-justify">
+          {{ data.sectionIntroContent | raw }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="lg:w-2/3 flex flex-col gap-y-8 lg:pl-10 xl:pl-24">
+        <div class="bg-white rounded-2xl border-t-2 border-r-4 border-b-8 border-l-2 border-tgi-darkblue p-8">
+          {% if data.visionTitle %}
+          <h5 class="text-2xl text-tgi-darkblue font-bold mb-4">{{ data.visionTitle }}</h5>
+          {% endif %}
+          {% if data.visionContent %}
+          <div class="prose xl:prose-xl">
+            {{ data.visionContent | raw }}
+          </div>
+          {% endif %}
+        </div>
+        <div class="bg-white rounded-2xl border-t-2 border-r-4 border-b-8 border-l-2 border-tgi-darkblue p-8">
+          {% if data.missionTitle %}
+          <h5 class="text-2xl text-tgi-darkblue font-bold mb-4">{{ data.missionTitle }}</h5>
+          {% endif %}
+          {% if data.missionContent %}
+          <div class="prose">
+            {{ data.missionContent | raw }}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-8 md:flex-row xl:gap-16 mt-10 lg:mt-12 xl:mt-24">
+      <div class="md:w-2/5 xl:w-1/3 order-2 md:order-1">
+        {% if data.pillarTitle %}
+        <h2 class="text-2xl md:text-3xl text-left font-bold text-tgi-green mb-6">{{ data.pillarTitle }}</h2>
+        {% endif %}
+        {% if data.pillarContent %}
+        <div class="prose mt-4 text-justify">
+          {{ data.pillarContent | raw }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="md:w-3/5 xl:w-2/3 order-1 md:order-2">
+        {% if data.pillarImage %}
+          <img src="{{ data.pillarImage | media }}" alt="" class="rounded-xl lg:rounded-2xl xl:rounded-[48px] border-4 border-solid border-tgi-amber" />
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endspaceless %}

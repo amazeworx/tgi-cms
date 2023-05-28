@@ -1,0 +1,49 @@
+==
+{#
+ # Initialize variables
+ #}
+
+{% if data.backgroundImage %}
+  {% set backgroundImage = data.backgroundImage != '' ? (data.backgroundImage | media ) : '' %}
+{% endif %}
+
+{% set linkCard = data.linkCard != '' ? data.linkCard:[] %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section class="pt-12 lg:pt-24 pb-[150px] lg:pb-[300px] bg-no-repeat bg-[right_0px_bottom_-250px] lg:bg-[right_0px_bottom_-120px]" style="background-image: url({{ backgroundImage }})">
+  <div class="container max-w-[920px] px-4 lg:px-8 mx-auto">
+    <div class="prose mx-auto text-left md:text-center">
+      {% if data.headline %}
+      <h2 class="font-black text-tgi-darkblue text-[2.25rem] lg:text-4xl mb-8">{{ data.headline }}</h2>
+      {% endif %}
+      {% if data.description %}
+      <div>
+        {{ data.description }}
+      </div>
+      {% endif %}
+    </div>
+    {% if data.linkCard %}
+      <div class="grid grid-cols-1 gap-y-8 mt-8 lg:grid-cols-3 lg:gap-x-10 lg:mt-12">
+        {% for block in linkCard %}
+          {% set group = block._group %}
+          {% partial 'blocks/homepage/component/'~ group ~'.htm' content=block %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if data.buttonText %}
+    <div class="mt-12 text-center">
+      <a
+        href="{{ data.buttonLink }}"
+        class="btn lg:btn-lg px-8 lg:h-[56px] lg:min-h-[56px] rounded-full border-transparent bg-tgi-green hover:bg-tgi-green hover:brightness-125 hover:border-transparent"
+      >
+        {{ data.buttonText }}
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endspaceless %}

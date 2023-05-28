@@ -1,0 +1,23 @@
+stats:
+  name: Stats
+  description: Add stats
+  icon: icon-file-text-o
+  fields:
+    number:
+      label: Stats Number
+      span: storm
+      cssClass: col-xs-3
+      type: text
+      size: large
+    unit:
+      label: Stats Unit
+      span: storm
+      cssClass: col-xs-2
+      type: text
+      size: large
+    description:
+      label: Stats Description
+      span: storm
+      cssClass: col-xs-7
+      type: text
+      size: large

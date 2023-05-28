@@ -1,0 +1,463 @@
+page-header:
+  name: Page Header
+  icon: icon-columns
+  fields:
+    backgroundImage:
+      label: Background Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    pageTitle:
+      label: Page Title
+      span: right
+      type: text
+      size: large
+    pageDescription:
+      label: Page Description
+      span: right
+      type: textarea
+      size: small
+
+section-overview:
+  name: Overview
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: right
+      imageWidth: 220
+      imageHeight: 220
+    sectionId:
+      label: Section ID
+      span: left
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    content:
+      label: Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+
+section-gcg:
+  name: GCG
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: right
+      imageWidth: 220
+      imageHeight: 220
+    sectionId:
+      label: Section ID
+      span: left
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    subheadline:
+      label: Sub Headline
+      span: left
+      type: text
+      size: large
+    introContent:
+      label: Intro Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    principle:
+      label: Principle
+      span: full
+      type: repeater
+      prompt: Add new principle
+      style: collapsed
+      maxItems: 9
+      form:
+        fields:
+          title:
+            label: Principle
+            span: storm
+            cssClass: col-xs-4
+            type: text
+            size: large
+          description:
+            label: Description
+            span: storm
+            cssClass: col-xs-4
+            type: textarea
+            size: small
+          application:
+            label: Application
+            span: storm
+            cssClass: col-xs-4
+            type: textarea
+            size: small
+    guides:
+      label: Guides
+      span: full
+      type: repeater
+      prompt: Add new guide
+      style: collapsed
+      form:
+        fields:
+          image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: right
+            imageWidth: 220
+            imageHeight: 220
+          title:
+            label: Title
+            span: left
+            type: text
+            size: large
+          description:
+            label: Description
+            span: left
+            size: large
+            type: richeditor
+            toolbarButtons:
+              [
+                "paragraphFormat",
+                "paragraphStyle",
+                "quote",
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "superscript",
+                "color",
+                "align",
+                "formatOL",
+                "formatUL",
+                "insertLink",
+                "insertHR",
+                "|",
+                "clearFormatting",
+                "html",
+              ]
+          fileUpload:
+            label: File Upload
+            span: left
+            type: mediafinder
+            size: large
+            mode: file
+section-hsse:
+  name: HSSE
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: right
+      imageWidth: 220
+      imageHeight: 220
+    sectionId:
+      label: Section ID
+      span: left
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    subheadline:
+      label: Sub Headline
+      span: left
+      type: text
+      size: large
+    introContent:
+      label: Intro Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    aspects:
+      label: Aspects
+      span: full
+      type: repeater
+      prompt: Add new aspect
+      style: collapsed
+      maxItems: 9
+      form:
+        fields:
+          title:
+            label: Title
+            span: full
+            type: text
+            size: large
+          content:
+            label: Content
+            span: full
+            type: richeditor
+            toolbarButtons:
+              [
+                "paragraphFormat",
+                "paragraphStyle",
+                "quote",
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "superscript",
+                "color",
+                "align",
+                "formatOL",
+                "formatUL",
+                "insertLink",
+                "insertHR",
+                "|",
+                "clearFormatting",
+                "html",
+              ]
+section-csr:
+  name: CSR
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: right
+      imageWidth: 220
+      imageHeight: 220
+    sectionId:
+      label: Section ID
+      span: left
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    subheadline:
+      label: Sub Headline
+      span: left
+      type: text
+      size: large
+    introContent:
+      label: Intro Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    csrVisionMission:
+      label: Vision Mission CSR
+      type: section
+    sectionHeadline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    sectionIntroContent:
+      label: Intro Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    visionTitle:
+      label: Vision Title
+      span: left
+      type: text
+      size: large
+    missionTitle:
+      label: Mission Title
+      span: right
+      type: text
+      size: large
+    visionContent:
+      label: Vision Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    missionContent:
+      label: Mission Content
+      span: right
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    csrPillar:
+      label: 5 Pillar CSR
+      type: section
+    pillarImage:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: right
+      imageWidth: 220
+      imageHeight: 220
+    pillarTitle:
+      label: 5 Pillar Title
+      span: left
+      type: text
+      size: large
+    pillarContent:
+      label: 5 Pillar Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]

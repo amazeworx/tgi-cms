@@ -1,0 +1,21 @@
+page-header:
+  name: Page Header
+  icon: icon-columns
+  fields:
+    backgroundImage:
+      label: Background Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    pageTitle:
+      label: Page Title
+      span: right
+      type: text
+      size: large
+    pageDescription:
+      label: Page Description
+      span: right
+      type: textarea
+      size: small

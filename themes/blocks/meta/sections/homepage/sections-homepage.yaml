@@ -1,0 +1,132 @@
+section-hero:
+  name: Hero
+  description: Display "Hero image / slider"
+  icon: icon-table
+  fields:
+    content:
+      type: repeater
+      prompt: Add new slide
+      style: collapsed
+      groups: themes/blocks/meta/sections/homepage/hero/hero-slide.yaml
+
+section-operation:
+  name: Operation & Services
+  description: Display "Operation & Services" section
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    subHeadline:
+      label: Sub Headline
+      span: right
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: right
+      type: textarea
+      size: small
+    content:
+      label: Content
+      span: right
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    buttons:
+      label: Buttons
+      span: right
+      type: repeater
+      prompt: Add new button
+      style: collapsed
+      maxItems: 2
+      groups: themes/blocks/meta/buttons.yaml
+    stats:
+      label: Stats
+      span: full
+      type: repeater
+      prompt: Add new stats
+      style: collapsed
+      maxItems: 3
+      groups: themes/blocks/meta/sections/homepage/operation-services/stats.yaml
+
+section-corporate:
+  name: Corporate Activites
+  description: Display "Corporate Activites" section
+  icon: icon-columns
+  fields:
+    headline:
+      label: Headline
+      span: full
+      type: text
+      size: large
+    description:
+      label: Description
+      span: full
+      type: textarea
+      size: large
+    linkCard:
+      label: Link Card
+      span: full
+      type: repeater
+      prompt: Add new Link Card
+      style: collapsed
+      maxItems: 3
+      groups: themes/blocks/meta/sections/homepage/corporate-activities/link-card.yaml
+    buttonText:
+      label: Button Text
+      span: left
+      type: text
+      size: small
+    buttonLink:
+      label: Button URL
+      span: right
+      type: text
+      size: small
+    backgroundImage:
+      label: Background Image
+      type: mediafinder
+      mode: image
+      span: full
+      imageWidth: 220
+      imageHeight: 220
+
+section-statement:
+  name: Statement
+  description: TGI Statement
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    headline:
+      label: Text
+      span: right
+      type: textarea
+      size: large

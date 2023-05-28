@@ -1,0 +1,22 @@
+linkCard:
+  name: Link Card
+  description: Add card
+  icon: icon-file-text-o
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    title:
+      label: Title
+      span: right
+      type: text
+      size: large
+    link:
+      label: Link
+      span: right
+      type: text
+      size: large

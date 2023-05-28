@@ -1,0 +1,60 @@
+==
+{#
+ # Initialize variables
+ #}
+{% set sectionId = data.sectionId != '' ? data.sectionId : '' %}
+{% set aspects = data.aspects != '' ? data.aspects:[] %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section id="{{ sectionId }}"  class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-white">
+  <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
+    <div class="flex flex-col gap-8 md:flex-row xl:gap-16">
+      <div class="md:w-3/5 xl:w-1/2 xl:pt-4 order-2 md:order-1">
+        {% if data.headline %}
+        <h2 class="text-3xl lg:text-4xl font-bold text-tgi-darkblue mb-4">{{ data.headline }}</h2>
+        {% endif %}
+        {% if data.subheadline %}
+        <h3 class="text-tgi-green font-bold text-lg lg:text-xl mb-4">
+          {{ data.subheadline }}
+        </h3>
+        {% endif %}
+        {% if data.introContent %}
+        <div class="prose mt-4 text-justify">
+          {{ data.introContent | raw }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="md:w-2/5 xl:w-1/2 order-1 md:order-2">
+        {% if data.image %}
+        <div class="aspect-w-4 aspect-h-3">
+          <img src="{{ data.image | media }}" alt="" class="rounded-xl lg:rounded-2xl xl:rounded-[48px] w-full h-full object-cover" />
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if data.aspects %}
+    <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-x-12 xl:gap-x-16 mt-12">
+      {% for block in aspects %}
+      <div class="lg:w-1/2">
+        {% if block.title %}
+        <h2 class="text-2xl md:text-3xl text-left font-bold text-tgi-green mb-6">
+          {{ block.title }}
+        </h2>
+        {% endif %}
+        {% if block.content %}
+        <div class="prose text-justify">
+          {{ block.content | raw }}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endspaceless %}

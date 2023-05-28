@@ -191,14 +191,3 @@ section-grid:
       prompt: Add new block
       style: accordion
       groups: themes/blocks/meta/blocks.yaml
-
-section-hero:
-  name: Hero
-  description: display hero image / slider
-  icon: icon-table
-  fields:
-    content:
-      type: repeater
-      prompt: Add new slide
-      style: accordion
-      groups: themes/blocks/meta/blocks.yaml

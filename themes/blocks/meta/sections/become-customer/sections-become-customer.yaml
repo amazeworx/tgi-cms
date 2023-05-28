@@ -1,0 +1,99 @@
+page-header:
+  name: Page Header
+  icon: icon-columns
+  fields:
+    backgroundImage:
+      label: Background Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    pageTitle:
+      label: Page Title
+      span: right
+      type: text
+      size: large
+    pageDescription:
+      label: Page Description
+      span: right
+      type: textarea
+      size: small
+section-business-concept:
+  name: Business Concept
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: right
+      imageWidth: 220
+      imageHeight: 220
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    content:
+      label: Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    serviceRequestForm:
+      label: Service Request Form
+      type: section
+    serviceRequestHeadline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    serviceRequestDescription:
+      label: Description
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    fileUpload:
+      label: File Upload
+      span: left
+      type: mediafinder
+      size: large
+      mode: file

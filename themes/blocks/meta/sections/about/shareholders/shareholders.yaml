@@ -1,0 +1,23 @@
+stats:
+  name: Stats
+  description: Add stats
+  icon: icon-file-text-o
+  fields:
+    percentage:
+      label: Percentage
+      span: storm
+      cssClass: col-xs-4
+      type: text
+      size: large
+    shareholder:
+      label: Shareholder
+      span: storm
+      cssClass: col-xs-4
+      type: text
+      size: large
+    shares:
+      label: Shares
+      span: storm
+      cssClass: col-xs-4
+      type: text
+      size: large

@@ -1,0 +1,38 @@
+==
+{#
+ # Initialize variables
+ #}
+{% set annualReports = data.annualReports != '' ? data.annualReports:[] %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16">
+  <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
+    {% if data.annualReports %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {% for block in annualReports %}
+      <a
+        href="{{ block.fileUpload | media }}" download
+        class="block rounded-2xl bg-slate-100 hover:shadow-lg hover:-translate-y-1 transition duration-300 border border-solid border-slate-200 overflow-hidden"
+      >
+        {% if block.image %}
+          <div class="rounded-2xl">
+            <img src="{{ block.image | media }}" alt="" class="rounded-t-2xl" />
+          </div>
+        {% endif %}
+        <div class="p-6 border-t border-solid border-slate-200">
+          {% if block.title %}
+          <h4 class="text-slate-700 font-semibold text-lg leading-tight">
+            {{ block.title }}
+          </h4>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endspaceless %}

@@ -1,0 +1,136 @@
+[staticPage]
+useContent = 0
+default = 0
+
+[staticMenu]
+code = "main-menu"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "news/category"
+==
+<?php
+function onEnd()
+{
+  // Optional - set the page title to the post title
+  if ($this->post)
+    $this->page->title = $this->post->title;
+}
+?>
+==
+{% partial 'head' %}
+<body>
+  {#
+    # Repeater definitions
+    #}
+  {repeater
+    name="sections"
+    groups="themes/blocks/meta/sections.yaml"
+    tab="Blocks"
+    prompt="Add new section"
+    style="accordion"
+  }
+    {variable name="_dummy" type="text"}{/variable}
+  {/repeater}
+
+  {% partial 'header' %}
+
+  <main>
+    {#
+    # Rendering blocks
+    #}
+    {% for section in sections %}
+      <!-- must reside in partials/blocks/{name_of_group} -->
+      {% partial 'blocks/' ~ section._group data=section %}
+    {% endfor %}
+
+    {% set post = blogPost.post %}
+
+    <div class="bg-tgi-darkblue flex flex-col pb-48">
+      <div class="text-center pt-40 pb-8 max-w-xl mx-auto">
+        <div class="text-white text-center text-xl mb-0">
+          Home&nbsp;&nbsp;&nbsp;&raquo;&nbsp;&nbsp;&nbsp;News
+        </div>
+      </div>
+    </div>
+    {% if post.featured_images.count %}
+    <div class="container max-w-screen-lg mx-auto -mt-48">
+    {% for image in post.featured_images %}
+        <img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}" class="rounded-3xl" />
+    {% endfor %}
+    </div>
+    {% endif %}
+    <div class="bg-white pt-10 pb-24">
+      <div class="container max-w-prose mx-auto">
+        <div class="prose">
+          <h1 class="text-[2.25rem] font-bold leading-tight mb-4">
+            {{ post.title }}
+          </h1>
+          {% if post.published_at %}
+          <div class="mt-4 mb-6 text-slate-500">{{ post.published_at|date("j F Y") }}</div>
+          {% endif %}
+
+          {% if post.content_html %}
+          {{ post.content_html | raw }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <section class="py-24 bg-slate-100">
+      <div class="container max-w-screen-xl px-6 mx-auto">
+        <div class="mb-8">
+          <h3 class="text-4xl text-tgi-darkblue font-black">Berita Lainnya</h3>
+        </div>
+        <div class="grid grid-cols-3 gap-8">
+          <a
+            href="#"
+            class="block rounded-3xl bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300"
+          >
+            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
+              <img src="{{ 'assets/images/content/news-img-01.jpg'|theme }}" alt="" class="rounded-3xl" />
+            </div>
+            <div class="p-6">
+              <h4 class="text-slate-700 font-semibold text-lg leading-tight">
+                Vaksinasi Covid -19 Regional Office 1 Jambi
+              </h4>
+              <div class="text-slate-500 text-sm mt-2">18 Maret 2021</div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="block rounded-3xl bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300"
+          >
+            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
+              <img src="{{ 'assets/images/content/news-img-03.jpg'|theme }}" alt="" class="rounded-3xl" />
+            </div>
+            <div class="p-6">
+              <h4 class="text-slate-700 font-semibold text-lg leading-tight">
+                Simbolis Penyerahan Klaim Asuransi KP 233
+              </h4>
+              <div class="text-slate-500 text-sm mt-2">2 Maret 2021</div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="block rounded-3xl bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300"
+          >
+            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
+            <img src="{{ 'assets/images/content/news-img-02.jpg'|theme }}" alt="" class="rounded-3xl" />
+            </div>
+            <div class="p-6">
+              <h4 class="text-slate-700 font-semibold text-lg leading-tight">
+                Business Gathering 2021 - Evolving with TGI business in the New Normal
+              </h4>
+              <div class="text-slate-500 text-sm mt-2">01 Maret 2021</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  {% partial 'footer' %}
+  {% scripts %}
+</body>
+</html>

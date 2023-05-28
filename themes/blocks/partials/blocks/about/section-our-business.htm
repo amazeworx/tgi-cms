@@ -1,0 +1,32 @@
+==
+{#
+ # Initialize variables
+ #}
+{% set sectionId = data.sectionId != '' ? data.sectionId : '' %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section id="{{ sectionId }}" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16">
+  <div class="container px-4 md:px-8 max-w-screen-xl mx-auto">
+    <div class="flex flex-col gap-y-8 md:flex-row">
+      <div class="w-full order-2 md:order-1 md:w-3/5 lg:w-1/2">
+        {% if data.headline %}
+        <h2 class="text-3xl md:text-3xl md:text-4xl font-bold text-tgi-darkblue mb-8">{{ data.headline }}</h2>
+        {% endif %}
+        {% if data.content %}
+        <div class="prose text-justify">
+          {{ data.content | raw }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="w-full order-1 md:order-2 md:w-2/5 md:pl-10 lg:w-1/2 lg:pl-24">
+        {% if data.image %}
+          <img src="{{ data.image | media }}" alt="" class="rounded-xl lg:rounded-[48px]" />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endspaceless %}

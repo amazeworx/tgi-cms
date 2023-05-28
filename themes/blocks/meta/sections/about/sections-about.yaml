@@ -1,0 +1,412 @@
+page-header:
+  name: Page Header
+  icon: icon-columns
+  fields:
+    backgroundImage:
+      label: Background Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    pageTitle:
+      label: Page Title
+      span: right
+      type: text
+      size: large
+    pageDescription:
+      label: Page Description
+      span: right
+      type: textarea
+      size: small
+
+section-our-business:
+  name: Our Business
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: right
+      imageWidth: 220
+      imageHeight: 220
+    sectionId:
+      label: Section ID
+      span: left
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    content:
+      label: Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+
+section-vision-mission:
+  name: Vision & Mission
+  icon: icon-columns
+  fields:
+    sectionId:
+      label: Section ID
+      span: left
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: right
+      type: text
+      size: large
+    visionTitle:
+      label: Vision Title
+      span: left
+      type: text
+      size: large
+    missionTitle:
+      label: Mission Title
+      span: right
+      type: text
+      size: large
+    visionText:
+      label: Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        ["formatOL", "formatUL", "insertLink", "|", "clearFormatting", "html"]
+    missionText:
+      label: Content
+      span: right
+      type: richeditor
+      toolbarButtons:
+        ["formatOL", "formatUL", "insertLink", "|", "clearFormatting", "html"]
+
+section-shareholders:
+  name: Shareholders
+  icon: icon-columns
+  fields:
+    sectionId:
+      label: Section ID
+      span: left
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: full
+      type: text
+      size: large
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    shareholders:
+      label: Shareholders
+      span: full
+      type: repeater
+      prompt: Add new shareholder
+      style: collapsed
+      maxItems: 3
+      form:
+        fields:
+          percentage:
+            label: Percentage
+            span: storm
+            cssClass: col-xs-4
+            type: text
+            size: large
+          shareholder:
+            label: Shareholder
+            span: storm
+            cssClass: col-xs-4
+            type: text
+            size: large
+          shares:
+            label: Shares
+            span: storm
+            cssClass: col-xs-4
+            type: text
+            size: large
+
+section-management:
+  name: Top Management
+  icon: icon-columns
+  fields:
+    sectionId:
+      label: Section ID
+      span: full
+      type: text
+      size: huge
+    headline:
+      label: Headline
+      span: full
+      type: text
+      size: huge
+    directors_section:
+      label: Directors Section
+      type: section
+    directors_section_title:
+      label: Directors Section Headline
+      span: full
+      type: text
+      size: huge
+    directors:
+      label: Directors
+      span: full
+      type: repeater
+      prompt: Add director
+      style: collapsed
+      maxItems: 9
+      form:
+        fields:
+          director_image:
+            label: Director Photo
+            type: mediafinder
+            mode: image
+            span: left
+            imageWidth: 220
+            imageHeight: 220
+          director_name:
+            label: Director Name
+            span: right
+            type: text
+            size: large
+          director_title:
+            label: Director Title
+            span: right
+            type: text
+            size: large
+          director_bio:
+            label: Director Bio
+            span: right
+            type: richeditor
+            toolbarButtons:
+              [
+                "paragraphFormat",
+                "paragraphStyle",
+                "quote",
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "superscript",
+                "color",
+                "align",
+                "formatOL",
+                "formatUL",
+                "insertLink",
+                "insertHR",
+                "|",
+                "clearFormatting",
+                "html",
+              ]
+    commisioners_section:
+      label: Commisioners Section
+      type: section
+    commisioners_section_title:
+      label: Commisioners Section Headline
+      span: full
+      type: text
+      size: huge
+    commisioners:
+      label: Commisioners
+      span: full
+      type: repeater
+      prompt: Add Commisioner
+      style: collapsed
+      maxItems: 9
+      form:
+        fields:
+          commisioner_image:
+            label: Commisioner Photo
+            type: mediafinder
+            mode: image
+            span: left
+            imageWidth: 220
+            imageHeight: 220
+          commisioner_name:
+            label: Commisioner Name
+            span: right
+            type: text
+            size: large
+          commisioner_title:
+            label: Commisioner Title
+            span: right
+            type: text
+            size: large
+          commisioner_bio:
+            label: Commisioner Bio
+            span: right
+            type: richeditor
+            toolbarButtons:
+              [
+                "paragraphFormat",
+                "paragraphStyle",
+                "quote",
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "superscript",
+                "color",
+                "align",
+                "formatOL",
+                "formatUL",
+                "insertLink",
+                "insertHR",
+                "|",
+                "clearFormatting",
+                "html",
+              ]
+
+section-identity:
+  name: Corporate Identity
+  icon: icon-columns
+  fields:
+    sectionId:
+      label: Section ID
+      span: full
+      type: text
+      size: huge
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    headline:
+      label: Headline
+      span: right
+      type: text
+      size: large
+    content:
+      label: Content
+      span: right
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+
+section-culture:
+  name: Corporate Culture
+  icon: icon-columns
+  fields:
+    sectionId:
+      label: Section ID
+      span: full
+      type: text
+      size: huge
+    headline:
+      label: Headline
+      span: full
+      type: text
+      size: huge
+    sub_headline:
+      label: Sub Headline
+      span: full
+      type: text
+      size: huge
+    content_col_1:
+      label: Content Column 1
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    content_col_2:
+      label: Content Column 2
+      span: right
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    image_1:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: full
+      imageWidth: 220
+      imageHeight: 220
+    image_2:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: full
+      imageWidth: 220
+      imageHeight: 220

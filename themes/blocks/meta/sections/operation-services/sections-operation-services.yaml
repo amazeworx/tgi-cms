@@ -1,0 +1,182 @@
+page-header:
+  name: Page Header
+  icon: icon-columns
+  fields:
+    backgroundImage:
+      label: Background Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    pageTitle:
+      label: Page Title
+      span: right
+      type: text
+      size: large
+    pageDescription:
+      label: Page Description
+      span: right
+      type: textarea
+      size: small
+
+section-overview:
+  name: Overview
+  icon: icon-columns
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: right
+      imageWidth: 220
+      imageHeight: 220
+    sectionId:
+      label: Section ID
+      span: left
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    content:
+      label: Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+
+section-gas-pipeline-system:
+  name: Gas Pipeline System
+  icon: icon-columns
+  fields:
+    sectionId:
+      label: Section ID
+      span: full
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: full
+      type: text
+      size: large
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: full
+      imageWidth: 220
+      imageHeight: 220
+    locations:
+      label: Locations
+      span: full
+      type: repeater
+      prompt: Add new location
+      style: collapsed
+      maxItems: 9
+      form:
+        fields:
+          title:
+            label: Title
+            span: full
+            type: text
+            size: large
+          address:
+            label: Address
+            span: full
+            size: large
+            type: richeditor
+            toolbarButtons:
+              [
+                "paragraphFormat",
+                "paragraphStyle",
+                "quote",
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "superscript",
+                "color",
+                "align",
+                "formatOL",
+                "formatUL",
+                "insertLink",
+                "insertHR",
+                "|",
+                "clearFormatting",
+                "html",
+              ]
+
+section-pipeline-information:
+  name: Pipeline Information
+  icon: icon-columns
+  fields:
+    sectionId:
+      label: Section ID
+      span: full
+      type: text
+      size: large
+    headline:
+      label: Headline
+      span: full
+      type: text
+      size: large
+    information:
+      label: Information
+      span: full
+      type: repeater
+      prompt: Add new information
+      style: collapsed
+      maxItems: 9
+      form:
+        fields:
+          title:
+            label: Title
+            span: full
+            type: text
+            size: large
+          content:
+            label: Content
+            span: full
+            size: large
+            type: richeditor
+            toolbarButtons:
+              [
+                "paragraphFormat",
+                "paragraphStyle",
+                "quote",
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "superscript",
+                "color",
+                "align",
+                "formatOL",
+                "formatUL",
+                "insertLink",
+                "insertHR",
+                "|",
+                "clearFormatting",
+                "html",
+              ]

@@ -1,0 +1,44 @@
+==
+{#
+ # Initialize variables
+ #}
+{% set sectionId = data.sectionId != '' ? data.sectionId : '' %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section id="{{ sectionId }}" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-slate-100">
+  <div class="container px-4 md:px-8 max-w-screen-xl mx-auto">
+    {% if data.headline %}
+    <h2 class="text-3xl md:text-3xl md:text-4xl font-bold text-tgi-darkblue mb-8">{{ data.headline }}</h2>
+    {% endif %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 2xl:gap-24">
+      {% if data.visionText %}
+      <div class="bg-white rounded-2xl border-t-2 border-r-4 border-b-8 border-l-2 border-tgi-darkblue p-8">
+        {% if data.visionTitle %}
+        <h5 class="text-2xl text-tgi-darkblue font-bold mb-4">{{ data.visionTitle }}</h5>
+        {% endif %}
+        {% if data.visionText %}
+        <div class="prose prose-xl">
+          {{ data.visionText | raw }}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% if data.missionText %}
+      <div class="bg-white rounded-2xl border-t-2 border-r-4 border-b-8 border-l-2 border-tgi-darkblue p-8">
+        {% if data.missionTitle %}
+        <h5 class="text-2xl text-tgi-darkblue font-bold mb-4">{{ data.missionTitle }}</h5>
+        {% endif %}
+        {% if data.missionText %}
+        <div class="prose">
+          {{ data.missionText | raw }}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endspaceless %}

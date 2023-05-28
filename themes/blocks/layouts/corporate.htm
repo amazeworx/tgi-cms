@@ -1,46 +1,21 @@
 [staticPage]
-useContent = 1
+useContent = 0
 default = 0
 
 [staticMenu]
 code = "main-menu"
 ==
-<!DOCTYPE html>
-<html lang="{{ this.page.activeLocale ?: 'en' }}" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ this.page.title }}</title>
-
-    <style type="postcss">
-    ::selection {
-        @apply text-white bg-blue-300;
-    }
-    </style>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
-    <script src="{{ 'assets/js/app.js'|theme }}"></script>
-    <link rel="stylesheet" href="{{ 'assets/css/app.css'|theme }}" />
-    <link rel="stylesheet" href="{{ 'assets/styles.css'|theme }}" />
-    {% styles %}
-</head>
+{% partial 'head' %}
 <body>
   {#
     # Repeater definitions
     #}
   {repeater
     name="sections"
-    groups="themes/blocks/meta/sections.yaml"
+    groups="themes/blocks/meta/sections/corporate/sections-corporate.yaml"
     tab="Blocks"
     prompt="Add new section"
-    style="accordion"
+    style="collapsed"
   }
     {variable name="_dummy" type="text"}{/variable}
   {/repeater}
@@ -53,27 +28,20 @@ code = "main-menu"
       #}
     {% for section in sections %}
         <!-- must reside in partials/blocks/{name_of_group} -->
-        {% partial 'blocks/' ~ section._group data=section %}
+        {% partial 'blocks/corporate/' ~ section._group data=section %}
     {% endfor %}
 
-    <div class="relative min-h-[400px] bg-tgi-darkblue flex flex-col justify-end">
-      <div class="text-center pb-16 relative z-10">
-        <h1 class="text-white text-5xl font-extrabold">Corporate Activities</h1>
-      </div>
-      <img src="{{ 'assets/images/banner/hero-03.jpg'|theme }}" alt="" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay -z-0" />
-    </div>
-
-    <section id="overview" class="py-24 scroll-mt-24">
-      <div class="container max-w-screen-xl px-8 mx-auto">
-        <div class="flex">
-          <div class="w-1/2 pr-24">
+    {# <section id="overview" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16">
+      <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
+        <div class="flex flex-col gap-8 md:flex-row xl:gap-0">
+          <div class="md:w-2/5 xl:w-1/2 xl:pr-24">
             <div class="aspect-w-4 aspect-h-3">
-              <img src="{{ 'assets/images/content/about-img-01.jpg'|theme }}" alt="" class="rounded-[48px] w-full h-full object-cover" />
+              <img src="{{ 'assets/images/content/about-img-01.jpg'|theme }}" alt="" class="rounded-xl lg:rounded-2xl xl:rounded-[48px] w-full h-full object-cover" />
             </div>
           </div>
-          <div class="w-1/2 pt-12">
-            <h2 class="text-4xl font-bold text-tgi-darkblue mb-8">Overview</h2>
-            <div class="prose mt-8">
+          <div class="md:w-3/5 xl:w-1/2 xl:pt-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-tgi-darkblue mb-4 md:mb-8">Overview</h2>
+            <div class="prose mt-4 md:mt-8">
               <p>
                 Other aspects of increasing corporate values include the implementation of all
                 daily business activities in line with the principles of Good Corporate
@@ -86,12 +54,12 @@ code = "main-menu"
           </div>
         </div>
       </div>
-    </section>
+    </section> #}
 
-    <section id="gcg" class="py-24 scroll-mt-24 bg-slate-100">
-      <div class="container px-8 max-w-screen-xl mx-auto">
+    {# <section id="gcg" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-slate-100">
+      <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
         <div class="">
-          <h2 class="text-4xl font-bold text-tgi-darkblue mb-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-tgi-darkblue mb-4">
             Good Corporate Governance (GCG)
           </h2>
           <h3 class="text-tgi-green font-bold text-xl mb-4">
@@ -178,8 +146,8 @@ code = "main-menu"
             </tbody>
           </table>
         </div>
-        <div class="flex gap-x-8 mt-24 mb-8 justify-center">
-          <div class="w-1/2 bg-white rounded-2xl border-t-2 border-r-2 border-b-8 border-l-2 border-tgi-amber p-8">
+        <div class="flex flex-col gap-y-4 md:flex-row md:gap-x-8 justify-center mt-12 xl:mt-24 mb-4 md:mb-8">
+          <div class="md:w-1/2 bg-white rounded-2xl border-t-2 border-r-2 border-b-8 border-l-2 border-tgi-amber p-6 md:p-8">
             <div class="flex gap-x-6">
               <div class="w-1/4">
                 <a href="#" class="block">
@@ -187,7 +155,7 @@ code = "main-menu"
                 </a>
               </div>
               <div class="w-3/4">
-                <h5 class="text-2xl text-tgi-green font-bold mt-3 mb-4">
+                <h5 class="text-xl/tight md:text-2xl text-tgi-green font-bold md:mt-3 mb-4">
                   Pedoman Perilaku / Code of Conduct (CoC)
                 </h5>
                 <div>
@@ -216,7 +184,7 @@ code = "main-menu"
               </div>
             </div>
           </div>
-          <div class="w-1/2 bg-white rounded-2xl border-t-2 border-r-2 border-b-8 border-l-2 border-tgi-amber p-8">
+          <div class="md:w-1/2 bg-white rounded-2xl border-t-2 border-r-2 border-b-8 border-l-2 border-tgi-amber p-6 md:p-8">
             <div class="flex gap-x-6">
               <div class="w-1/4">
                 <a href="#" class="block">
@@ -224,7 +192,7 @@ code = "main-menu"
                 </a>
               </div>
               <div class="w-3/4">
-                <h5 class="text-2xl text-tgi-green font-bold mt-3 mb-4">Board Manual</h5>
+                <h5 class="text-xl/tight md:text-2xl text-tgi-green font-bold md:mt-3 mb-4">Board Manual</h5>
                 <div>
                   <a
                     href="#"
@@ -253,8 +221,8 @@ code = "main-menu"
           </div>
         </div>
         <div class="max-w-prose mx-auto">
-          <div class="bg-white rounded-2xl border-t-2 border-r-2 border-b-8 border-l-2 border-tgi-amber p-8">
-            <h5 class="text-2xl text-tgi-green font-bold mb-4">
+          <div class="bg-white rounded-2xl border-t-2 border-r-2 border-b-8 border-l-2 border-tgi-amber p-6 md:p-8">
+            <h5 class="text-xl/tight md:text-2xl text-tgi-green font-bold mb-4">
               Pengelolaan Whistleblowing System (WBS)
             </h5>
             <div class="prose">
@@ -277,14 +245,14 @@ code = "main-menu"
           </div>
         </div>
       </div>
-    </section>
+    </section> #}
 
-    <section id="hsse" class="py-24 scroll-mt-24 bg-white">
-      <div class="container max-w-screen-xl px-8 mx-auto">
-        <div class="flex gap-x-12">
-          <div class="w-1/2">
+    {# <section id="hsse" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-white">
+      <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
+        <div class="flex flex-col gap-y-6 lg:flex-row lg:gap-x-8 xl:gap-x-12">
+          <div class="lg:w-1/2">
             <div class="prose text-justify">
-              <h2 class="text-4xl text-left font-bold text-tgi-darkblue mb-6">
+              <h2 class="text-3xl md:text-4xl font-bold text-tgi-darkblue mb-4">
                 Health Safety Security & Environment (HSSE)
               </h2>
               <p>
@@ -302,14 +270,14 @@ code = "main-menu"
               </p>
             </div>
           </div>
-          <div class="w-1/2">
+          <div class="lg:w-1/2">
             <img src="{{ 'assets/images/content/tgi-hsse.jpg'|theme }}" alt="" class="rounded-[24px] border-4 border-solid border-tgi-amber" />
           </div>
         </div>
-        <div class="flex gap-x-12 mt-12">
-          <div class="w-1/2">
+        <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-x-12 mt-12">
+          <div class="lg:w-1/2">
             <div class="prose text-justify">
-              <h2 class="text-3xl text-left font-bold text-tgi-green mb-6">
+              <h2 class="text-2xl md:text-3xl text-left font-bold text-tgi-green mb-6">
                 Aspek Pengamanan
               </h2>
               <p>
@@ -334,9 +302,9 @@ code = "main-menu"
               </p>
             </div>
           </div>
-          <div class="w-1/2">
+          <div class="lg:w-1/2">
             <div class="prose text-justify">
-              <h2 class="text-3xl text-left font-bold text-tgi-green mb-6">
+              <h2 class="text-2xl md:text-3xl text-left font-bold text-tgi-green mb-6">
                 Aspek Pengelola Lingkungan
               </h2>
               <p>
@@ -368,19 +336,19 @@ code = "main-menu"
           </div>
         </div>
       </div>
-    </section>
+    </section> #}
 
-    <section id="csr" class="py-24 scroll-mt-24 bg-slate-100">
-      <div class="container max-w-screen-xl px-8 mx-auto">
+    {# <section id="csr" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-slate-100">
+      <div class="container max-w-screen-xl px-4 md:px-8 mx-auto">
         <div class="flex">
-          <div class="w-1/2 prose text-justify">
-            <h2 class="text-4xl text-left font-bold text-tgi-darkblue mb-6">
+          <div class="w-full lg:w-1/2 prose">
+            <h2 class="text-3xl md:text-4xl font-bold text-tgi-darkblue mb-4">
               Corporate Social Responsibility (CSR)
             </h2>
           </div>
         </div>
-        <div class="flex gap-x-12">
-          <div class="w-1/2">
+        <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-x-12">
+          <div class="lg:w-1/2">
             <div class="prose text-justify">
               <p>
                 TGI berkomitmen penuh untuk menjalankan program Tanggung Jawab Sosial dan
@@ -400,8 +368,8 @@ code = "main-menu"
                 dalam Sustainable Development Goals (SDGs).
               </p>
             </div>
-            <div class="prose text-justify mt-12">
-              <h2 class="text-3xl text-left font-bold text-tgi-green mb-6">
+            <div class="prose text-justify mt-8 lg:mt-12">
+              <h2 class="text-2xl md:text-3xl text-left font-bold text-tgi-green mb-6">
                 Kebijakan, Tujuan, Visi dan Misi CSR TGI
               </h2>
               <p>
@@ -421,11 +389,11 @@ code = "main-menu"
               </p>
             </div>
           </div>
-          <div class="w-1/2 pl-12">
+          <div class="lg:w-1/2 lg:pl-12">
             <img src="{{ 'assets/images/content/about-img-01.jpg'|theme }}" alt="" class="rounded-[24px]" />
           </div>
         </div>
-        <div class="grid grid-cols-3 gap-4 xl:gap-12 2xl:gap-12 mt-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 xl:gap-12 2xl:gap-12 mt-8 lg:mt-12">
           <div class="bg-white rounded-2xl border-t-2 border-r-4 border-b-8 border-l-2 border-tgi-darkblue p-8">
             <h5 class="text-2xl text-tgi-darkblue font-bold mb-4">Visi CSR</h5>
             <div class="prose prose-xl">
@@ -433,7 +401,7 @@ code = "main-menu"
               memberikan kontribusi positif untuk menjaga harmonisasi Perusahaan dan lingkungan.
             </div>
           </div>
-          <div class="col-span-2 bg-white rounded-2xl border-t-2 border-r-4 border-b-8 border-l-2 border-tgi-darkblue p-8">
+          <div class="lg:col-span-2 bg-white rounded-2xl border-t-2 border-r-4 border-b-8 border-l-2 border-tgi-darkblue p-8">
             <h5 class="text-2xl text-tgi-darkblue font-bold mb-4">Misi CSR</h5>
             <div class="prose max-w-none">
               <ul>
@@ -464,15 +432,15 @@ code = "main-menu"
           </div>
         </div>
 
-        <div class="flex mt-24">
-          <div class="w-1/2 prose text-justify">
-            <h2 class="text-4xl text-left font-bold text-tgi-green mb-6">
+        <div class="flex mt-12 xl:mt-24">
+          <div class="lg:w-1/2 prose">
+            <h2 class="text-3xl lg:text-4xl text-left font-bold text-tgi-green mb-6">
               Lima Pilar Program CSR TGI
             </h2>
           </div>
         </div>
-        <div class="flex gap-x-12">
-          <div class="w-1/2">
+        <div class="flex flex-col gap-y-6 lg:flex-row lg:gap-x-12">
+          <div class="lg:w-1/2">
             <div class="prose text-justify">
               <p>
                 Agar seluruh program yang dilaksanakan memberikan hasil optimal, Perseroan
@@ -484,7 +452,7 @@ code = "main-menu"
               </p>
             </div>
           </div>
-          <div class="w-1/2">
+          <div class="lg:w-1/2">
             <div class="prose text-justify">
               <p>
                 Untuk memudahkan proses perencanaan, pelaksanaan dan evaluasi program, Perseroan
@@ -496,10 +464,10 @@ code = "main-menu"
         </div>
 
         <div class="my-8">
-          <img src="{{ 'assets/images/content/tgi-lima-pillar-csr.jpg'|theme }}" alt="" class="rounded-[24px] border-4 border-solid border-tgi-amber" />
+          <img src="{{ 'assets/images/content/tgi-lima-pillar-csr.jpg'|theme }}" alt="" class="rounded-[24px] border-4 border-solid border-tgi-amber mx-auto" />
         </div>
       </div>
-    </section>
+    </section> #}
   </main>
 
   {% partial 'footer' %}

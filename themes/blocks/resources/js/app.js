@@ -21,4 +21,21 @@ jQuery(function ($) {
       $(".header").removeClass("header-shrink");
     }
   }
+
+  $("#mobile-menu-open").click(function (e) {
+    e.preventDefault();
+    $("#modal-overlay").addClass("open");
+    $("#mobile-menu-drawer").addClass("open");
+  });
+
+  $("#mobile-menu-close, #modal-overlay").click(function (e) {
+    e.preventDefault();
+    $("#modal-overlay").removeClass("open");
+    $("#mobile-menu-drawer").removeClass("open");
+  });
+
+  $("#mobile-menu-items a").click(function (e) {
+    $("#modal-overlay").removeClass("open");
+    $("#mobile-menu-drawer").removeClass("open");
+  });
 });

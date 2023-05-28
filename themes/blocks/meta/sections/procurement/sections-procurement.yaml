@@ -1,0 +1,101 @@
+page-header:
+  name: Page Header
+  icon: icon-columns
+  fields:
+    backgroundImage:
+      label: Background Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    pageTitle:
+      label: Page Title
+      span: right
+      type: text
+      size: large
+    pageDescription:
+      label: Page Description
+      span: right
+      type: textarea
+      size: small
+section-procurement-list:
+  name: Procurement List
+  icon: icon-columns
+  fields:
+    procurement:
+      type: repeater
+      prompt: Add new procurement
+      style: collapsed
+      form:
+        fields:
+          postingDate:
+            label: Posting Date
+            span: left
+            type: datepicker
+            mode: date
+            format: d M Y
+          title:
+            label: Title
+            span: right
+            type: text
+            size: large
+          pdf:
+            label: PDF Document
+            type: mediafinder
+            mode: file
+            span: left
+          dueDate:
+            label: Due date information
+            span: right
+            type: text
+            size: large
+section-vendor-registration:
+  name: Vendor Registration
+  icon: icon-columns
+  fields:
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    introContent:
+      label: Intro Content
+      span: left
+      type: richeditor
+      toolbarButtons:
+        [
+          "paragraphFormat",
+          "paragraphStyle",
+          "quote",
+          "bold",
+          "italic",
+          "underline",
+          "strikeThrough",
+          "superscript",
+          "color",
+          "align",
+          "formatOL",
+          "formatUL",
+          "insertLink",
+          "insertHR",
+          "|",
+          "clearFormatting",
+          "html",
+        ]
+    downloads:
+      type: repeater
+      prompt: Add new button
+      style: collapsed
+      form:
+        fields:
+          pdf:
+            label: PDF Document
+            type: mediafinder
+            mode: file
+            span: right
+          buttonText:
+            label: Button Text
+            span: left
+            type: text
+            size: large

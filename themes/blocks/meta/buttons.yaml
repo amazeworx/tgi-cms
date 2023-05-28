@@ -1,0 +1,23 @@
+button:
+  name: Button
+  description: Add button
+  icon: icon-file-text-o
+  fields:
+    buttonText:
+      label: Button Text
+      span: left
+      type: text
+      size: large
+    buttonColor:
+      label: Button Color
+      span: right
+      type: dropdown
+      emptyOption: -- Select --
+      options:
+        "blue": "Blue"
+        "green": "Green"
+    buttonUrl:
+      label: Button URL
+      span: full
+      type: text
+      size: large

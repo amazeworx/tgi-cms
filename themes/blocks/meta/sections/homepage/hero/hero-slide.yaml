@@ -1,0 +1,32 @@
+slide:
+  name: Hero Slide content
+  description: display slide content
+  icon: icon-id-card-o
+  fields:
+    image:
+      label: Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    image_alt:
+      label: Image Alt text
+      span: right
+    headline:
+      label: Headline
+      type: text
+      span: left
+    button_text:
+      label: Button Text
+      type: text
+      span: right
+    sub_headline:
+      label: SubHeadline
+      type: text
+      span: left
+    button_link:
+      label: Button Link
+      type: text
+      comment: "ex: https://tgi.co.id/about-us"
+      span: right

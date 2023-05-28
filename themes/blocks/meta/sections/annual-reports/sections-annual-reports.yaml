@@ -1,0 +1,52 @@
+page-header:
+  name: Page Header
+  icon: icon-columns
+  fields:
+    backgroundImage:
+      label: Background Image
+      type: mediafinder
+      mode: image
+      span: left
+      imageWidth: 220
+      imageHeight: 220
+    pageTitle:
+      label: Page Title
+      span: right
+      type: text
+      size: large
+    pageDescription:
+      label: Page Description
+      span: right
+      type: textarea
+      size: small
+section-annual-reports:
+  name: Annual Reports
+  icon: icon-columns
+  fields:
+    annualReports:
+      label: Annual Reports
+      span: full
+      type: repeater
+      prompt: Add new Annual Report
+      style: collapsed
+      maxItems: 9
+      form:
+        fields:
+          image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: right
+            imageWidth: 220
+            imageHeight: 220
+          title:
+            label: Headline
+            span: left
+            type: text
+            size: large
+          fileUpload:
+            label: File Upload
+            span: left
+            type: mediafinder
+            size: large
+            mode: file

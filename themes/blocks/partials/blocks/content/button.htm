@@ -1,0 +1,12 @@
+{% if content.buttonColor == 'green' %}
+  {% set btnClass = 'bg-tgi-green hover:bg-tgi-green' %}
+{% else %}
+  {% set btnClass = 'bg-tgi-darkblue hover:bg-tgi-darkblue' %}
+{% endif %}
+
+<a
+  href="{{ content.buttonUrl }}"
+  class="btn lg:btn-lg px-8 py-2 lg:h-[56px] lg:min-h-[56px] rounded-full border-transparent hover:brightness-125 hover:border-transparent {{ btnClass }}"
+>
+  {{ content.buttonText }}
+</a>

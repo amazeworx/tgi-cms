@@ -1,0 +1,38 @@
+==
+{#
+ # Initialize variables
+ #}
+{% set sectionId = data.sectionId != '' ? data.sectionId : '' %}
+{% set locations = data.locations != '' ? data.locations:[] %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section id="{{ sectionId }}" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-slate-100">
+  <div class="container px-4 md:px-8 max-w-screen-xl mx-auto">
+    {% if data.headline %}
+      <div>
+        <h2 class="text-3xl md:text-3xl md:text-4xl font-bold text-tgi-darkblue mb-8">{{ data.headline }}</h2>
+      </div>
+    {% endif %}
+    {% if data.image %}
+      <div class="my-8">
+        <img src="{{ data.image | media }}" alt="" class="rounded-xl md:rounded-2xl xl:rounded-[24px] border-4 border-solid border-tgi-amber" />
+      </div>
+    {% endif %}
+    {% if data.locations %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-sm">
+      {% for block in locations %}
+        <div>
+          <h4 class="font-bold text-base mb-1">{{ block.title }}</h4>
+          <div>
+            {{ block.address | raw }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endspaceless %}

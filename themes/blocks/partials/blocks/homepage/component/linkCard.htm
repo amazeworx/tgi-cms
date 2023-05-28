@@ -1,0 +1,13 @@
+<a
+  href="{{ content.link }}"
+  class="block lg:aspect-w-1 lg:aspect-h-1 rounded-2xl hover:-translate-y-1 hover:shadow-md transition ease-out duration-300"
+>
+  <div class="bg-slate-50 border border-slate-300 rounded-2xl p-8 text-center flex items-center justify-center">
+    <div>
+      <img src="{{ content.image | media }}" alt="" class="mx-auto" />
+      <h4 class="text-xl text-tgi-darkblue font-semibold leading-tight mt-4">
+        {{ content.title }}
+      </h4>
+    </div>
+  </div>
+</a>

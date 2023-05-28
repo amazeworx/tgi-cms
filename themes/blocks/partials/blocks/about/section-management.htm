@@ -1,0 +1,161 @@
+==
+{#
+ # Initialize variables
+ #}
+{% set sectionId = data.sectionId != '' ? data.sectionId : '' %}
+{% set directors = data.directors != '' ? data.directors:[] %}
+{% set commisioners = data.commisioners != '' ? data.commisioners:[] %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section id="{{ sectionId }}" class="py-10 scroll-mt-20 lg:py-12 xl:py-16 2xl:py-24 xl:scroll-mt-16 bg-slate-100">
+  <div class="container max-w-screen-xl px-0 md:px-8 mx-auto">
+    {% if data.headline %}
+    <h2 class="text-3xl md:text-4xl font-bold text-tgi-darkblue text-center mb-8">{{ data.headline }}</h2>
+    {% endif %}
+
+    <div class="mt-8 lg:mt-16">
+      {% if data.directors_section_title %}
+      <h3 class="text-2xl lg:text-3xl text-tgi-green text-center font-bold mb-8">{{ data.directors_section_title }}</h3>
+      {% endif %}
+      {% if data.directors %}
+      <div class="px-4 xl:px-28">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-10">
+          {% for key, block in directors %}
+            <label
+              for="director-{{ key }}"
+              class="block bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition duration-300"
+            >
+              {% if block.director_image %}
+              <div class="aspect-w-6 aspect-h-5">
+                <img src="{{ block.director_image|media }}" alt="" class="h-full w-full object-cover" />
+              </div>
+              {% endif %}
+              <div class="p-5">
+                {% if block.director_name %}
+                <h4 class="text-tgi-darkblue leading-tight font-semibold mb-2">
+                  {{ block.director_name }}
+                </h4>
+                {% endif %}
+                {% if block.director_title %}
+                <div class="text-slate-500 text-sm">{{ block.director_title }}</div>
+                {% endif %}
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+        {% for key, block in directors %}
+        <input type="checkbox" id="director-{{ key }}" class="modal-toggle" />
+        <label for="director-{{ key }}" class="modal cursor-pointer modal-bottom sm:modal-middle">
+          <label class="modal-box relative !max-w-3xl" for="">
+            <label for="director-{{ key }}" class="btn btn-sm btn-circle absolute right-2 top-2">
+              ✕
+            </label>
+            <div class="flex flex-col md:flex-row">
+              <div class="w-[220px] shrink-0">
+                {% if block.director_image %}
+                <div class="aspect-w-1 aspect-h-1">
+                  <img src="{{ block.director_image|media }}" alt="" class="h-full w-full object-cover rounded-xl" />
+                </div>
+                {% endif %}
+              </div>
+              <div class="md:pl-8">
+                <div class="pt-3 md:pr-12">
+                  {% if block.director_name %}
+                  <h4 class="text-tgi-darkblue leading-tight font-semibold text-2xl mb-2">
+                    {{ block.director_name }}
+                  </h4>
+                  {% endif %}
+                  {% if block.director_title %}
+                  <div class="text-slate-700 text-base">{{ block.director_title }}</div>
+                  {% endif %}
+                </div>
+                {% if block.director_bio %}
+                <div class="prose mt-4 text-sm">
+                  {{ block.director_bio|raw }}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </label>
+        </label>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="mt-8 lg:mt-16">
+      {% if data.commisioners_section_title %}
+      <h3 class="text-2xl lg:text-3xl text-tgi-green text-center font-bold mb-8">{{ data.commisioners_section_title }}</h3>
+      {% endif %}
+      {% if data.commisioners %}
+      <div class="px-4">
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-10">
+          {% for key, block in commisioners %}
+            <label
+              for="commisioner-{{ key }}"
+              class="block bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-md cursor-pointer hover:shadow-xl transition duration-300"
+            >
+              {% if block.commisioner_image %}
+              <div class="aspect-w-6 aspect-h-5">
+                <img src="{{ block.commisioner_image|media }}" alt="" class="h-full w-full object-cover" />
+              </div>
+              {% endif %}
+              <div class="p-5">
+                {% if block.commisioner_name %}
+                <h4 class="text-tgi-darkblue leading-tight font-semibold mb-2">
+                  {{ block.commisioner_name }}
+                </h4>
+                {% endif %}
+                {% if block.commisioner_title %}
+                <div class="text-slate-500 text-sm">{{ block.commisioner_title }}</div>
+                {% endif %}
+              </div>
+            </label>
+          {% endfor %}
+        </div>
+        {% for key, block in commisioners %}
+        <input type="checkbox" id="commisioner-{{ key }}" class="modal-toggle" />
+        <label for="commisioner-{{ key }}" class="modal cursor-pointer modal-bottom sm:modal-middle">
+          <label class="modal-box relative !max-w-3xl" for="">
+            <label for="commisioner-{{ key }}" class="btn btn-sm btn-circle absolute right-2 top-2">
+              ✕
+            </label>
+            <div class="flex flex-col md:flex-row">
+              <div class="w-[220px] shrink-0">
+                {% if block.commisioner_image %}
+                <div class="aspect-w-1 aspect-h-1">
+                  <img src="{{ block.commisioner_image|media }}" alt="" class="h-full w-full object-cover rounded-xl" />
+                </div>
+                {% endif %}
+              </div>
+              <div class="md:pl-8">
+                <div class="pt-3 md:pr-12">
+                  {% if block.commisioner_name %}
+                  <h4 class="text-tgi-darkblue leading-tight font-semibold text-2xl mb-2">
+                    {{ block.commisioner_name }}
+                  </h4>
+                  {% endif %}
+                  {% if block.commisioner_title %}
+                  <div class="text-slate-700 text-base">{{ block.commisioner_title }}</div>
+                  {% endif %}
+                </div>
+                {% if block.commisioner_bio %}
+                <div class="prose mt-4 text-sm">
+                  {{ block.commisioner_bio|raw }}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </label>
+        </label>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+{% endspaceless %}

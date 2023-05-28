@@ -1,0 +1,23 @@
+==
+{#
+ # Initialize variables
+ #}
+
+ {% set pageTitle = data.pageTitle != '' ? data.pageTitle : this.page.title %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+
+<div class="relative min-h-[320px] xl:min-h-[400px] bg-tgi-darkblue flex flex-col justify-end">
+  <div class="text-center pb-16 relative z-10">
+    <h1 class="text-white text-4xl lg:text-5xl font-extrabold">{{ pageTitle }}</h1>
+  </div>
+  {% if data.backgroundImage %}
+    {% set image = data.backgroundImage != '' ? (data.backgroundImage | media ) : '' %}
+    <img src="{{ image }}" alt="" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay -z-0" />
+  {% endif %}
+</div>
+
+{% endspaceless %}

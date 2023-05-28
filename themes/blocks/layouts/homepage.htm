@@ -1,47 +1,21 @@
 [staticPage]
-useContent = 1
+useContent = 0
 default = 0
 
 [staticMenu]
 code = "main-menu"
 ==
-<!DOCTYPE html>
-<html lang="{{ this.page.activeLocale ?: 'en' }}" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ this.page.title }}</title>
-
-    <style type="postcss">
-    ::selection {
-        @apply text-white bg-blue-300;
-    }
-    </style>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-    <script src="{{ 'assets/js/app.js'|theme }}"></script>
-    <link rel="stylesheet" href="{{ 'assets/css/app.css'|theme }}" />
-    <link rel="stylesheet" href="{{ 'assets/styles.css'|theme }}" />
-    {% styles %}
-</head>
+{% partial 'head' %}
 <body>
   {#
     # Repeater definitions
     #}
   {repeater
     name="sections"
-    groups="themes/blocks/meta/sections.yaml"
-    tab="Blocks"
+    groups="themes/blocks/meta/sections/homepage/sections-homepage.yaml"
+    tab="Sections"
     prompt="Add new section"
-    style="accordion"
+    style="collapsed"
   }
     {variable name="_dummy" type="text"}{/variable}
   {/repeater}
@@ -54,182 +28,21 @@ code = "main-menu"
       #}
     {% for section in sections %}
         <!-- must reside in partials/blocks/{name_of_group} -->
-        {% partial 'blocks/' ~ section._group data=section %}
+        {% partial 'blocks/homepage/' ~ section._group data=section %}
     {% endfor %}
 
-    {# Section 1 #}
-    <section class="py-24">
-      <div class="container max-w-screen-xl px-8 mx-auto">
-        <div class="flex">
-          <div class="w-1/2 pr-10 2xl:pr-16">
-            <img src="{{ 'assets/images/content/home-img-01.jpg'|theme }}" alt="" class="rounded-3xl" />
-          </div>
-          <div class="w-1/2 pl-8 pt-4">
-            <h3 class="text-base mb-8 relative pl-6 2xl:pl-9">
-              <span class="inline-block bg-tgi-green w-5 h-1 rounded-full absolute top-2.5 left-0"></span>
-              OPERATION & SERVICES
-            </h3>
-            <h2 class="text-slate-600 text-4xl mb-8">
-              Committed as <br />
-              <span class="font-black text-tgi-darkblue">the Transporter of Choice</span>
-              <br />
-              for natural gas
-            </h2>
-            <div class="prose">
-              <p>
-                In all aspects of our operation, TGI ensures the implementation of prudence. We
-                make sure the pursuit of profit does not cause any harm, be that to the people
-                or the environment.
-              </p>
-              <p>
-                TGI will continue to uphold and expand corporate values for its stakeholders,
-                championing the interests of shareholders through its commitment as “the
-                Transporter of Choice” for natural gas, proved and demonstrated through the
-                reliability and upgrading of its pipelines and support facilities, with
-                periodic, and thorough maintenance.
-              </p>
-            </div>
-            <div class="flex gap-x-4 mt-8">
-              <a
-                href="#"
-                class="btn btn-lg px-8 py-2 h-[56px] min-h-[56px] rounded-full border-transparent bg-tgi-darkblue hover:bg-tgi-darkblue hover:brightness-125 hover:border-transparent"
-              >
-                Gas Pipeline System
-              </a>
-              <a
-                href="#"
-                class="btn btn-lg px-8 h-[56px] min-h-[56px] rounded-full border-transparent bg-tgi-green hover:bg-tgi-green hover:brightness-125 hover:border-transparent"
-              >
-                Pipeline Information
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container max-w-screen-xl px-8 mx-auto mt-20">
-        <div class="grid grid-cols-3 gap-x-8">
-          <div class="text-center max-w-[250px] mx-auto">
-            <div class="inline-flex items-baseline gap-x-3">
-              <span class="text-[48px] text-tgi-darkblue font-bold">1000+</span>
-              <span class="text-slate-400 text-[32px]">km</span>
-            </div>
-            <div class="text-tgi-green font-medium">TOTAL PIPELINE NETWORK</div>
-          </div>
-          <div class="text-center max-w-[250px] mx-auto">
-            <div class="inline-flex items-baseline gap-x-3">
-              <span class="text-[48px] text-tgi-darkblue font-bold">723</span>
-              <span class="text-slate-400 text-[28px]">MMSCFD</span>
-            </div>
-            <div class="text-tgi-green font-medium">
-              MILLION STANDARD CUBIC FEET PER DAY VOLUME GAS
-            </div>
-          </div>
-          <div class="text-center max-w-[250px] mx-autor">
-            <div class="inline-flex items-baseline gap-x-3">
-              <span class="text-[48px] text-tgi-darkblue font-bold">87.84</span>
-              <span class="text-slate-400 text-[32px]">%</span>
-            </div>
-            <div class="text-tgi-green font-medium">CUSTOMER SATISFACTION INDEX</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {# Section 2 #}
-    <section class="pt-24 pb-[300px] bg-no-repeat bg-[right_0px_bottom_-120px]" style="background-image: url({{ 'assets/images/content/home-img-02.jpg'|theme }})">
-      <div class="container max-w-[920px] px-8 mx-auto">
-        <div class="prose mx-auto text-center">
-          <h2 class="font-black text-tgi-darkblue text-4xl mb-8">Corporate Activities </h2>
-          <p>
-            Other aspects of increasing corporate values include the implementation of all daily
-            business activities in line with the principles of Good Corporate Governance and
-            Business Ethics. Further, we implement a comprehensive Health, Safety and
-            Environment management system, synergizing every resource, developing local
-            community relations and strengthening communications with and concern for our valued
-            employees.
-          </p>
-        </div>
-        <div class="grid grid-cols-3 gap-x-10 mt-12">
-          <a
-            href="#"
-            class="block aspect-w-1 aspect-h-1 rounded-2xl hover:-translate-y-1 hover:shadow-md transition ease-out duration-300"
-          >
-            <div class="bg-slate-50 border border-slate-300 rounded-2xl p-8 text-center flex items-center justify-center">
-              <div>
-                <img src="{{ 'assets/images/content/icon-gcg.png'|theme }}" alt="" class="mx-auto" />
-                <h4 class="text-xl text-tgi-darkblue leading-tight mt-4">
-                  Good Corporate Governance
-                </h4>
-              </div>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="block aspect-w-1 aspect-h-1 rounded-2xl hover:-translate-y-1 hover:shadow-md transition ease-out duration-300"
-          >
-            <div class="bg-slate-50 border border-slate-300 rounded-2xl p-8 text-center flex items-center justify-center">
-              <div>
-                <img src="{{ 'assets/images/content/icon-csr.png'|theme }}" alt="" class="mx-auto" />
-                <h4 class="text-xl text-tgi-darkblue leading-tight mt-4">
-                  Corporate Social Responsibility
-                </h4>
-              </div>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="block aspect-w-1 aspect-h-1 rounded-2xl hover:-translate-y-1 hover:shadow-md transition ease-out duration-300"
-          >
-            <div class="bg-slate-50 border border-slate-300 rounded-2xl p-8 text-center flex items-center justify-center">
-              <div>
-                <img src="{{ 'assets/images/content/icon-hse.png'|theme }}" alt="" class="mx-auto" />
-                <h4 class="text-xl text-tgi-darkblue leading-tight mt-4">
-                  Health & Safety Environment
-                </h4>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="mt-12 text-center">
-          <a
-            href="#"
-            class="btn btn-lg px-8 h-[56px] min-h-[56px] rounded-full border-transparent bg-tgi-green hover:bg-tgi-green hover:brightness-125 hover:border-transparent"
-          >
-            Read More
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-24 bg-slate-100">
-      <div class="container max-w-screen-xl px-8 mx-auto">
-        <div class="relative">
-          <div class="aspect-w-16 aspect-h-9 relative shadow-[-0rem_-0rem_0_0_#FFC73C] rounded-[48px] overflow-hidden 3xl:shadow-[-0rem_-0rem_0_0_#FFC73C]">
-          <img src="{{ 'assets/images/content/home-img-03.jpg'|theme }}" alt="" class="rounded-[48px]" />
-          </div>
-          <div class="absolute right-0 bottom-0 w-1/2 -translate-y-10 rounded-l-3xl bg-tgi-green p-8">
-            <div class="text-2xl text-white">
-              TGI strive to become the “transporter of choice” of natural gas serving customers
-              in the domestic markets of Sumatra and Batam, as well as the export markets of
-              Singapore and Malaysia.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-24 bg-white">
-      <div class="container max-w-screen-xl px-8 mx-auto">
+    <section class="py-12 lg:py-24 bg-white">
+      <div class="container max-w-screen-xl px-4 lg:px-8 mx-auto">
         <div class="mb-8">
-          <h3 class="text-4xl text-tgi-darkblue font-black">Latest News</h3>
+          <h3 class="text-3xl lg:text-4xl text-tgi-darkblue font-black">Latest News</h3>
         </div>
-        <div class="grid grid-cols-3 gap-8">
-          <a href="/vaksinasi-covid" class="block rounded-3xl bg-slate-100 hover:shadow-lg hover:-translate-y-1 transition duration-300">
-            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
-              <img src="{{ 'assets/images/content/news-img-01.jpg'|theme }}" alt="" class="rounded-3xl" />
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+          <a href="/vaksinasi-covid" class="block rounded-xl lg:rounded-3xl bg-slate-100 hover:shadow-lg hover:-translate-y-1 transition duration-300">
+            <div class="aspect-w-16 aspect-h-9 rounded-xl lg:rounded-3xl">
+              <img src="{{ 'assets/images/content/news-img-01.jpg'|theme }}" alt="" class="rounded-xl lg:rounded-3xl" />
             </div>
-            <div class="p-6">
-              <h4 class="text-slate-700 font-semibold text-lg leading-tight">
+            <div class="p-4 lg:p-6">
+              <h4 class="text-slate-700 font-semibold text-base lg:text-lg leading-tight">
                 Vaksinasi Covid -19 Regional Office 1 Jambi
               </h4>
               <div class="text-slate-500 text-sm mt-2">18 Maret 2021</div>
@@ -237,13 +50,13 @@ code = "main-menu"
           </a>
           <a
             href="/vaksinasi-covid"
-            class="block rounded-3xl bg-slate-100 hover:shadow-lg hover:-translate-y-1 transition duration-300"
+            class="block rounded-xl lg:rounded-3xl bg-slate-100 hover:shadow-lg hover:-translate-y-1 transition duration-300"
           >
-            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
-            <img src="{{ 'assets/images/content/news-img-03.jpg'|theme }}" alt="" class="rounded-3xl" />
+            <div class="aspect-w-16 aspect-h-9 rounded-xl lg:rounded-3xl">
+            <img src="{{ 'assets/images/content/news-img-03.jpg'|theme }}" alt="" class="rounded-xl lg:rounded-3xl" />
             </div>
-            <div class="p-6">
-              <h4 class="text-slate-700 font-semibold text-lg leading-tight">
+            <div class="p-4 lg:p-6">
+              <h4 class="text-slate-700 font-semibold text-base lg:text-lg leading-tight">
                 Simbolis Penyerahan Klaim Asuransi KP 233
               </h4>
               <div class="text-slate-500 text-sm mt-2">2 Maret 2021</div>
@@ -253,11 +66,11 @@ code = "main-menu"
             href="/vaksinasi-covid"
             class="block rounded-3xl bg-slate-100 hover:shadow-lg hover:-translate-y-1 transition duration-300"
           >
-            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
-            <img src="{{ 'assets/images/content/news-img-02.jpg'|theme }}" alt="" class="rounded-3xl" />
+            <div class="aspect-w-16 aspect-h-9 rounded-xl lg:rounded-3xl">
+            <img src="{{ 'assets/images/content/news-img-02.jpg'|theme }}" alt="" class="rounded-xl lg:rounded-3xl" />
             </div>
-            <div class="p-6">
-              <h4 class="text-slate-700 font-semibold text-lg leading-tight">
+            <div class="p-4 lg:p-6">
+              <h4 class="text-slate-700 font-semibold text-base lg:text-lg leading-tight">
                 Business Gathering 2021 - Evolving with TGI business in the New Normal
               </h4>
               <div class="text-slate-500 text-sm mt-2">01 Maret 2021</div>
@@ -267,7 +80,7 @@ code = "main-menu"
         <div class="text-center mt-12">
           <a
             href="/news"
-            class="btn btn-lg px-8 h-[56px] min-h-[56px] rounded-full border-transparent text-slate-600 bg-slate-200 hover:bg-slate-300 hover:border-transparent"
+            class="btn lg:btn-lg px-8 lg:h-[56px] lg:min-h-[56px] rounded-full border-transparent text-slate-600 bg-slate-200 hover:bg-slate-300 hover:border-transparent"
           >
             More News
           </a>
