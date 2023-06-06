@@ -5,15 +5,15 @@
     {% if item.items %}
       <div class="collapse group collapse-arrow rounded-xl">
         <input type="checkbox" class="peer" />
-        <div class="collapse-title text-base font-medium min-h-[2.5rem] p-3 pr-8 peer-checked:bg-slate-100">
+        <div class="collapse-title text-base text-white font-medium min-h-[2.5rem] p-3 pr-8 peer-checked:bg-tgi-amber peer-checked:text-black">
           <a class="inline-block pt-1.5" href="{{ item.url }}"><span>{{ item.title }}</span></a>
         </div>
-        <div class="collapse-content peer-checked:bg-slate-100">
+        <div class="collapse-content peer-checked:bg-tgi-amber">
           {% partial 'mobile-submenu-items' items=item.items class='' %}
         </div>
       </div>
       {% else %}
-      <div class="text-base font-medium p-3 pr-8">
+      <div class="text-base text-white font-medium p-3 pr-8">
         <a href="{{ item.url }}">{{ item.title }}</a>
       </div>
     {% endif %}

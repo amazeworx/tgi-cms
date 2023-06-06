@@ -1,10 +1,13 @@
-<?php namespace Winter\Translate\Classes;
+<?php
+
+namespace Winter\Translate\Classes;
 
 use App;
+use Cache;
+use Config;
+use Request;
 use Schema;
 use Session;
-use Request;
-use Config;
 use Winter\Translate\Models\Locale;
 
 /**
@@ -103,18 +106,16 @@ class Translator
             return $this->isConfigured;
         }
 
-        if (Session::has(self::SESSION_CONFIGURED)) {
-            $result = true;
-        }
-        elseif (App::hasDatabase() && Schema::hasTable('winter_translate_locales')) {
-            Session::put(self::SESSION_CONFIGURED, true);
-            $result = true;
-        }
-        else {
-            $result = false;
+        if (Cache::get(self::SESSION_CONFIGURED)) {
+            return $this->isConfigured = true;
         }
 
-        return $this->isConfigured = $result;
+        if (App::hasDatabase() && Schema::hasTable('winter_translate_locales')) {
+            Cache::forever(self::SESSION_CONFIGURED, true);
+            return $this->isConfigured = true;
+        }
+
+        return false;
     }
 
     //

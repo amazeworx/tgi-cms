@@ -19,3 +19,53 @@ page-header:
       span: right
       type: textarea
       size: small
+section-locations:
+  name: Contact List
+  icon: icon-columns
+  fields:
+    locations:
+      label: Locations
+      span: full
+      type: repeater
+      prompt: Add new location
+      style: collapsed
+      maxItems: 9
+      form:
+        fields:
+          image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: left
+            imageWidth: 220
+            imageHeight: 220
+          title:
+            label: Title
+            span: full
+            type: text
+            size: large
+          address:
+            label: Address
+            span: full
+            size: large
+            type: richeditor
+            toolbarButtons:
+              [
+                "paragraphFormat",
+                "paragraphStyle",
+                "quote",
+                "bold",
+                "italic",
+                "underline",
+                "strikeThrough",
+                "superscript",
+                "color",
+                "align",
+                "formatOL",
+                "formatUL",
+                "insertLink",
+                "insertHR",
+                "|",
+                "clearFormatting",
+                "html",
+              ]

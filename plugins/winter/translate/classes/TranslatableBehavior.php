@@ -1,9 +1,11 @@
-<?php namespace Winter\Translate\Classes;
+<?php
+
+namespace Winter\Translate\Classes;
 
 use Str;
-use Winter\Translate\Classes\Translator;
 use Winter\Storm\Extension\ExtensionBase;
 use Winter\Storm\Html\Helper as HtmlHelper;
+use Winter\Translate\Classes\Translator;
 
 /**
  * Base class for model behaviors.
@@ -95,6 +97,22 @@ abstract class TranslatableBehavior extends ExtensionBase
         $translate = Translator::instance();
         $this->translatableContext = $translate->getLocale();
         $this->translatableDefault = $translate->getDefaultLocale();
+    }
+
+    /**
+     * Add attribute(s) to the model's translatable array.
+     * @param string|array $attributes
+     * @return void
+     */
+    public function addTranslatableAttributes($attributes = null): void
+    {
+        $attributes = is_array($attributes) ? $attributes : func_get_args();
+
+        if (!isset($this->model->translatable)) {
+            $this->model->addDynamicProperty('translatable', $attributes);
+        } else {
+            $this->model->translatable = array_merge($this->model->translatable, $attributes);
+        }
     }
 
     /**

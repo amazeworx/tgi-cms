@@ -7,7 +7,7 @@ Front-end user management for Winter CMS.
 
 ## Requirements
 
-This plugin requires the [Ajax Framework](https://wintercms.com/docs/cms/ajax) to be included in your layout/page in order to handle form requests.
+This plugin requires the [Ajax Framework](https://wintercms.com/docs/ajax/introduction) to be included in your layout/page in order to handle form requests.
 
 ## Managing users
 
@@ -143,7 +143,7 @@ We can add any other additional fields here too, such as `phone`, `company`, etc
 
 ## Password length requirements
 
-By default, the User plugin requires a minimum password length of 8 characters for all users when registering or changing their password. You can change this length requirement by going to backend and navigating to System > Users > User Settings. Inside the Registration tab, a **Minimum password length** field is provided, allowing you to increase or decrease this limit to your preferred length.
+By default, the User plugin requires a minimum password length of 8 characters for all users when registering or changing their password. You can change this length requirement by going to config/config.php. Inside the file, change the value of the ***minPasswordLength*** parameter to your own.
 
 ## Error handling
 
@@ -303,6 +303,7 @@ This plugin will fire some global events that can be useful for interacting with
 - **winter.user.beforeAuthenticate**: Before the user is attempting to authenticate using the Account component.
 - **winter.user.login**: The user has successfully signed in.
 - **winter.user.logout**: The user has successfully signed out.
+- **winter.user.activate**: The user has activated their own account by email validation.
 - **winter.user.deactivate**: The user has opted-out of the site by deactivating their account. This should be used to disable any content the user may want removed.
 - **winter.user.reactivate**: The user has reactivated their own account by signing back in. This should revive the users content on the site.
 - **winter.user.getNotificationVars**: Fires when sending a user notification to enable passing more variables to the email templates. Passes the `$user` model the template will be for.

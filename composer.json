@@ -43,7 +43,8 @@
         "winter/wn-user-plugin": "^2.0",
         "hounddd/wn-blocks-theme": "^1.2",
         "winter/wn-translate-plugin": "^2.1",
-        "winter/wn-search-plugin": "9999999-dev"
+        "winter/wn-search-plugin": "9999999-dev",
+        "studiobosco/wn-translate-extended": "9999999-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.8",

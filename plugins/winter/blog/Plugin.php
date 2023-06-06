@@ -1,16 +1,21 @@
-<?php namespace Winter\Blog;
+<?php
+
+namespace Winter\Blog;
 
 use Backend;
-use Controller;
-use Winter\Blog\Models\Post;
+use Backend\Models\UserRole;
+use Event;
 use System\Classes\PluginBase;
 use Winter\Blog\Classes\TagProcessor;
 use Winter\Blog\Models\Category;
-use Event;
+use Winter\Blog\Models\Post;
 
 class Plugin extends PluginBase
 {
-    public function pluginDetails()
+    /**
+     * Returns information about this plugin.
+     */
+    public function pluginDetails(): array
     {
         return [
             'name'        => 'winter.blog::lang.plugin.name',
@@ -18,51 +23,66 @@ class Plugin extends PluginBase
             'author'      => 'Winter CMS',
             'icon'        => 'icon-pencil',
             'homepage'    => 'https://github.com/wintercms/wn-blog-plugin',
-            'replaces'    => ['RainLab.Blog' => '<= 1.5.0'],
+            'replaces'    => ['RainLab.Blog' => '<= 1.7.0'],
         ];
     }
 
-    public function registerComponents()
+    /**
+     * Registers the components provided by this plugin.
+     */
+    public function registerComponents(): array
     {
         return [
-            'Winter\Blog\Components\Post'       => 'blogPost',
-            'Winter\Blog\Components\Posts'      => 'blogPosts',
-            'Winter\Blog\Components\Categories' => 'blogCategories',
-            'Winter\Blog\Components\RssFeed'    => 'blogRssFeed'
+            \Winter\Blog\Components\Post::class       => 'blogPost',
+            \Winter\Blog\Components\Posts::class      => 'blogPosts',
+            \Winter\Blog\Components\Categories::class => 'blogCategories',
+            \Winter\Blog\Components\RssFeed::class    => 'blogRssFeed'
         ];
     }
 
-    public function registerPermissions()
+    /**
+     * Registers the permissions provided by this plugin.
+     */
+    public function registerPermissions(): array
     {
         return [
             'winter.blog.manage_settings' => [
                 'tab'   => 'winter.blog::lang.blog.tab',
-                'label' => 'winter.blog::lang.blog.manage_settings'
+                'label' => 'winter.blog::lang.blog.manage_settings',
+                'roles' => [UserRole::CODE_DEVELOPER, UserRole::CODE_PUBLISHER],
             ],
             'winter.blog.access_posts' => [
                 'tab'   => 'winter.blog::lang.blog.tab',
-                'label' => 'winter.blog::lang.blog.access_posts'
+                'label' => 'winter.blog::lang.blog.access_posts',
+                'roles' => [UserRole::CODE_DEVELOPER, UserRole::CODE_PUBLISHER],
             ],
             'winter.blog.access_categories' => [
                 'tab'   => 'winter.blog::lang.blog.tab',
-                'label' => 'winter.blog::lang.blog.access_categories'
+                'label' => 'winter.blog::lang.blog.access_categories',
+                'roles' => [UserRole::CODE_DEVELOPER, UserRole::CODE_PUBLISHER],
             ],
             'winter.blog.access_other_posts' => [
                 'tab'   => 'winter.blog::lang.blog.tab',
-                'label' => 'winter.blog::lang.blog.access_other_posts'
+                'label' => 'winter.blog::lang.blog.access_other_posts',
+                'roles' => [UserRole::CODE_DEVELOPER, UserRole::CODE_PUBLISHER],
             ],
             'winter.blog.access_import_export' => [
                 'tab'   => 'winter.blog::lang.blog.tab',
-                'label' => 'winter.blog::lang.blog.access_import_export'
+                'label' => 'winter.blog::lang.blog.access_import_export',
+                'roles' => [UserRole::CODE_DEVELOPER, UserRole::CODE_PUBLISHER],
             ],
             'winter.blog.access_publish' => [
                 'tab'   => 'winter.blog::lang.blog.tab',
-                'label' => 'winter.blog::lang.blog.access_publish'
+                'label' => 'winter.blog::lang.blog.access_publish',
+                'roles' => [UserRole::CODE_DEVELOPER, UserRole::CODE_PUBLISHER],
             ]
         ];
     }
 
-    public function registerNavigation()
+    /**
+     * Registers the backend navigation items provided by this plugin.
+     */
+    public function registerNavigation(): array
     {
         return [
             'blog' => [
@@ -97,7 +117,10 @@ class Plugin extends PluginBase
         ];
     }
 
-    public function registerSettings()
+    /**
+     * Registers the settings provided by this plugin.
+     */
+    public function registerSettings(): array
     {
         return [
             'blog' => [
@@ -113,35 +136,10 @@ class Plugin extends PluginBase
         ];
     }
 
-    public function registerClassAliases()
-    {
-        /**
-         * To allow compatibility with plugins that extend the original RainLab.Blog plugin, 
-         * this will alias those classes to use the new Winter.Blog classes.
-         */
-        return [
-            \Winter\Blog\Plugin::class                     => \RainLab\Blog\Plugin::class,
-            \Winter\Blog\Components\Categories::class      => \RainLab\Blog\Components\Categories::class,
-            \Winter\Blog\Classes\TagProcessor::class       => \RainLab\Blog\Classes\TagProcessor::class,
-            \Winter\Blog\Components\Posts::class           => \RainLab\Blog\Components\Posts::class,
-            \Winter\Blog\Components\Post::class            => \RainLab\Blog\Components\Post::class,
-            \Winter\Blog\Components\RssFeed::class         => \RainLab\Blog\Components\RssFeed::class,
-            \Winter\Blog\Controllers\Categories::class     => \RainLab\Blog\Controllers\Categories::class,
-            \Winter\Blog\Controllers\Posts::class          => \RainLab\Blog\Controllers\Posts::class,
-            \Winter\Blog\FormWidgets\BlogMarkdown::class   => \RainLab\Blog\FormWidgets\BlogMarkdown::class,
-            \Winter\Blog\FormWidgets\MLBlogMarkdown::class => \RainLab\Blog\FormWidgets\MLBlogMarkdown::class,
-            \Winter\Blog\Models\Settings::class            => \RainLab\Blog\Models\Settings::class,
-            \Winter\Blog\Models\PostImport::class          => \RainLab\Blog\Models\PostImport::class,
-            \Winter\Blog\Models\Post::class                => \RainLab\Blog\Models\Post::class,
-            \Winter\Blog\Models\Category::class            => \RainLab\Blog\Models\Category::class,
-            \Winter\Blog\Models\PostExport::class          => \RainLab\Blog\Models\PostExport::class,
-        ];
-    }
-
     /**
      * Register method, called when the plugin is first registered.
      */
-    public function register()
+    public function register(): void
     {
         /*
          * Register the image tag processing callback
@@ -162,12 +160,23 @@ class Plugin extends PluginBase
         });
     }
 
-    public function boot()
+    /**
+     * Boot method, called when the plugin is first booted.
+     */
+    public function boot(): void
+    {
+        $this->extendWinterPagesPlugin();
+    }
+
+    /**
+     * Extends the Winter.Pages plugin
+     */
+    protected function extendWinterPagesPlugin(): void
     {
         /*
          * Register menu items for the Winter.Pages plugin
          */
-        Event::listen('pages.menuitem.listTypes', function() {
+        Event::listen('pages.menuitem.listTypes', function () {
             return [
                 'blog-category'       => 'winter.blog::lang.menuitem.blog_category',
                 'all-blog-categories' => 'winter.blog::lang.menuitem.all_blog_categories',
@@ -177,21 +186,27 @@ class Plugin extends PluginBase
             ];
         });
 
-        Event::listen('pages.menuitem.getTypeInfo', function($type) {
-            if ($type == 'blog-category' || $type == 'all-blog-categories') {
-                return Category::getMenuTypeInfo($type);
-            }
-            elseif ($type == 'blog-post' || $type == 'all-blog-posts' || $type == 'category-blog-posts') {
-                return Post::getMenuTypeInfo($type);
+        Event::listen('pages.menuitem.getTypeInfo', function ($type) {
+            switch ($type) {
+                case 'blog-category':
+                case 'all-blog-categories':
+                    return Category::getMenuTypeInfo($type);
+                case 'blog-post':
+                case 'all-blog-posts':
+                case 'category-blog-posts':
+                    return Post::getMenuTypeInfo($type);
             }
         });
 
-        Event::listen('pages.menuitem.resolveItem', function($type, $item, $url, $theme) {
-            if ($type == 'blog-category' || $type == 'all-blog-categories') {
-                return Category::resolveMenuItem($item, $url, $theme);
-            }
-            elseif ($type == 'blog-post' || $type == 'all-blog-posts' || $type == 'category-blog-posts') {
-                return Post::resolveMenuItem($item, $url, $theme);
+        Event::listen('pages.menuitem.resolveItem', function ($type, $item, $url, $theme) {
+            switch ($type) {
+                case 'blog-category':
+                case 'all-blog-categories':
+                    return Category::resolveMenuItem($item, $url, $theme);
+                case 'blog-post':
+                case 'all-blog-posts':
+                case 'category-blog-posts':
+                    return Post::resolveMenuItem($item, $url, $theme);
             }
         });
     }

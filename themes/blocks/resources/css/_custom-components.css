@@ -53,7 +53,7 @@
 }
 
 #mobile-menu-drawer {
-  @apply fixed top-0 right-0 bottom-0 w-[260px] bg-white z-[110] pt-14 px-3 pb-5 translate-x-full transition-all duration-500;
+  @apply fixed top-0 right-0 bottom-0 w-[260px] bg-tgi-darkblue z-[110] pt-14 px-3 pb-5 translate-x-full transition-all duration-500;
   @apply xl:hidden;
   &.open {
     @apply translate-x-0;
@@ -61,7 +61,7 @@
 }
 
 #modal-overlay {
-  @apply fixed inset-0 overflow-hidden bg-black/30 z-[100] opacity-0 invisible transition-all duration-500;
+  @apply fixed inset-0 overflow-hidden bg-black/50 z-[100] opacity-0 invisible transition-all duration-500;
   @apply lg:hidden;
   &.open {
     @apply visible opacity-100;
