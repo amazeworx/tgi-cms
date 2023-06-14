@@ -40,11 +40,11 @@ section-procurement-list:
             span: right
             type: text
             size: large
-          pdf:
-            label: PDF Document
-            type: mediafinder
-            mode: file
+          link:
+            label: Document Link
             span: left
+            type: text
+            size: large
           dueDate:
             label: Due date information
             span: right

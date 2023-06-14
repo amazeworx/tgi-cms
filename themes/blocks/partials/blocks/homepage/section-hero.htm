@@ -64,6 +64,11 @@
   const swiper = new Swiper('.swiper', {
     loop: false,
     watchOverflow: true,
+    autoplay: {
+      delay: 7000,
+      disableOnInteraction: false,
+    },
+    loop: true,
     pagination: {
       el: '.swiper-pagination',
     },

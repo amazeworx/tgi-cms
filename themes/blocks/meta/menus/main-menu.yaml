@@ -3,26 +3,28 @@ items:
         title: 'About Us'
         nesting: 0
         type: static-page
-        url: null
         code: ''
         reference: about
-        cmsPage: null
         replace: 0
         viewBag:
+            locale:
+                id:
+                    title: 'Tentang Kami'
+                    url: ''
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
         items:
             -
                 title: 'Our Business'
-                nesting: null
                 type: url
                 url: '/about#our-business'
                 code: ''
-                reference: null
-                cmsPage: null
-                replace: null
                 viewBag:
+                    locale:
+                        id:
+                            title: ''
+                            url: '/id/tentang-kami#our-business'
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
@@ -226,9 +228,13 @@ items:
                     isExternal: '0'
             -
                 title: 'How to Become Our Customer (SRF)'
+                nesting: false
                 type: url
                 url: /become-our-customer
                 code: ''
+                reference: null
+                cmsPage: null
+                replace: false
                 viewBag:
                     locale:
                         id:
