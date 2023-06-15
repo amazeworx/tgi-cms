@@ -51,7 +51,7 @@
   </div>
   {% if data.stats %}
   <div class="container max-w-screen-xl px-4 lg:px-8 mx-auto mt-10 lg:mt-20">
-    <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-3 lg:gap-x-8">
+    <div class="stats-grid grid grid-cols-1 gap-y-8 lg:grid-cols-3 lg:gap-x-8">
       {% for block in stats %}
         {% set group = block._group %}
         {% partial 'blocks/content/'~ group ~'.htm' content=block %}
