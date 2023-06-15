@@ -9,15 +9,21 @@ stats:
       cssClass: col-xs-3
       type: text
       size: large
+    suffix:
+      label: Suffix
+      span: storm
+      cssClass: col-xs-2
+      type: text
+      size: large
     unit:
-      label: Stats Unit
+      label: Unit
       span: storm
       cssClass: col-xs-2
       type: text
       size: large
     description:
-      label: Stats Description
+      label: Description
       span: storm
-      cssClass: col-xs-7
+      cssClass: col-xs-5
       type: text
       size: large

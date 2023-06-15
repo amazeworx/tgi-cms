@@ -1,6 +1,11 @@
 <div class="text-left lg:text-center lg:max-w-[250px] lg:mx-auto">
   <div class="inline-flex items-baseline gap-x-2 lg:gap-x-3">
-    <span class="text-4xl lg:text-[48px] text-tgi-darkblue font-bold">{{ content.number }}</span>
+    <span class="inline-flex">
+      <span class="counter text-4xl lg:text-[48px] text-tgi-darkblue font-bold" data-number="{{ content.number }}">{{ content.number }}</span>
+      {% if content.suffix %}
+      <span class="text-4xl lg:text-[48px] text-tgi-darkblue font-bold">{{ content.suffix }}</span>
+      {% endif %}
+    </span>
     <span class="text-slate-400 text-2xl lg:text-[32px]">{{ content.unit }}</span>
   </div>
   <div class="text-tgi-green font-medium text-sm lg:text-base">{{ content.description }}</div>
