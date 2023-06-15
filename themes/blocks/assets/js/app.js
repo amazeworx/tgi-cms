@@ -31,5 +31,37 @@
       $("#modal-overlay").removeClass("open");
       $("#mobile-menu-drawer").removeClass("open");
     });
+    $(window).scroll(startCounter);
+    function startCounter() {
+      let scrollY = (window.scrollY || document.documentElement.scrollTop) + window.innerHeight;
+      let divPos = document.querySelector(".stats-grid").offsetTop;
+      if (scrollY > divPos) {
+        let commaSeparateNumber2 = function(num) {
+          return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        };
+        var commaSeparateNumber = commaSeparateNumber2;
+        $(window).off("scroll", startCounter);
+        $(".counter").each(function() {
+          var $this = $(this);
+          jQuery({
+            Counter: 0
+          }).animate(
+            {
+              Counter: $this.text().replace(/,/g, "")
+            },
+            {
+              duration: 1500,
+              easing: "swing",
+              step: function() {
+                $this.text(commaSeparateNumber2(Math.floor(this.Counter)));
+              },
+              complete: function() {
+                $this.text(commaSeparateNumber2(this.Counter));
+              }
+            }
+          );
+        });
+      }
+    }
   });
 })();

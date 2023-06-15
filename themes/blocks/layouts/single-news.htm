@@ -7,7 +7,16 @@ code = "main-menu"
 
 [blogPost]
 slug = "{{ :slug }}"
-categoryPage = "news/category"
+categoryPage = "news-post"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "news"
+postsPerPage = 3
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "news-post"
+postPage = "news-post"
 ==
 <?php
 function onEnd()
@@ -18,33 +27,14 @@ function onEnd()
 }
 ?>
 ==
+{% set post = blogPost.post %}
+
 {% partial 'head' %}
 <body>
-  {#
-    # Repeater definitions
-    #}
-  {repeater
-    name="sections"
-    groups="themes/blocks/meta/sections.yaml"
-    tab="Blocks"
-    prompt="Add new section"
-    style="accordion"
-  }
-    {variable name="_dummy" type="text"}{/variable}
-  {/repeater}
 
   {% partial 'header' %}
 
   <main>
-    {#
-    # Rendering blocks
-    #}
-    {% for section in sections %}
-      <!-- must reside in partials/blocks/{name_of_group} -->
-      {% partial 'blocks/' ~ section._group data=section %}
-    {% endfor %}
-
-    {% set post = blogPost.post %}
 
     <div class="bg-tgi-darkblue flex flex-col pb-48">
       <div class="text-center pt-40 pb-8 max-w-xl mx-auto">
@@ -76,57 +66,42 @@ function onEnd()
         </div>
       </div>
     </div>
-    <section class="py-24 bg-slate-100">
-      <div class="container max-w-screen-xl px-6 mx-auto">
+
+    {% set posts = blogPosts.posts %}
+    {% if posts %}
+    <section class="py-12 lg:py-24 bg-slate-100">
+      <div class="container max-w-screen-xl px-4 lg:px-8 mx-auto">
         <div class="mb-8">
-          <h3 class="text-4xl text-tgi-darkblue font-black">Berita Lainnya</h3>
+          <h3 class="text-3xl lg:text-4xl text-tgi-darkblue font-black">{{ 'Other News'|_ }}</h3>
         </div>
-        <div class="grid grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {% for post in posts %}
           <a
-            href="#"
-            class="block rounded-3xl bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300"
+            href="{{ post.url }}"
+            class="block rounded-xl lg:rounded-3xl bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300"
           >
-            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
-              <img src="{{ 'assets/images/content/news-img-01.jpg'|theme }}" alt="" class="rounded-3xl" />
+            <div class="aspect-w-16 aspect-h-9 rounded-xl lg:rounded-2xl xl:rounded-3xl">
+              {% if post.featured_images.count %}
+              {% for image in post.featured_images %}
+                  <img data-src="{{ image.filename }}" src="{{ image.path }}" alt="{{ image.description }}" class="rounded-xl lg:rounded-2xl xl:rounded-3xl" />
+              {% endfor %}
+              {% endif %}
             </div>
             <div class="p-6">
               <h4 class="text-slate-700 font-semibold text-lg leading-tight">
-                Vaksinasi Covid -19 Regional Office 1 Jambi
+                {{ post.title }}
               </h4>
-              <div class="text-slate-500 text-sm mt-2">18 Maret 2021</div>
+              <div class="text-slate-500 text-sm mt-2">{{ post.published_at|date("j F Y") }}</div>
             </div>
           </a>
-          <a
-            href="#"
-            class="block rounded-3xl bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300"
-          >
-            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
-              <img src="{{ 'assets/images/content/news-img-03.jpg'|theme }}" alt="" class="rounded-3xl" />
-            </div>
-            <div class="p-6">
-              <h4 class="text-slate-700 font-semibold text-lg leading-tight">
-                Simbolis Penyerahan Klaim Asuransi KP 233
-              </h4>
-              <div class="text-slate-500 text-sm mt-2">2 Maret 2021</div>
-            </div>
-          </a>
-          <a
-            href="#"
-            class="block rounded-3xl bg-white hover:shadow-lg hover:-translate-y-1 transition duration-300"
-          >
-            <div class="aspect-w-16 aspect-h-9 rounded-3xl">
-            <img src="{{ 'assets/images/content/news-img-02.jpg'|theme }}" alt="" class="rounded-3xl" />
-            </div>
-            <div class="p-6">
-              <h4 class="text-slate-700 font-semibold text-lg leading-tight">
-                Business Gathering 2021 - Evolving with TGI business in the New Normal
-              </h4>
-              <div class="text-slate-500 text-sm mt-2">01 Maret 2021</div>
-            </div>
-          </a>
+          {% else %}
+            <div class="no-data">{{ blogPosts.noPostsMessage }}</div>
+          {% endfor %}
         </div>
+
       </div>
     </section>
+    {% endif %}
 
   </main>
 
