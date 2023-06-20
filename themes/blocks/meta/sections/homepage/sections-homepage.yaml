@@ -127,6 +127,37 @@ section-statement:
       type: textarea
       size: large
 
+section-awards:
+  name: Awards
+  icon: icon-table
+  fields:
+    headline:
+      label: Headline
+      span: left
+      type: text
+      size: large
+    content:
+      type: repeater
+      prompt: Add new Award
+      style: collapsed
+      form:
+        fields:
+          image:
+            label: Image
+            type: mediafinder
+            mode: image
+            span: left
+            imageWidth: 220
+            imageHeight: 220
+          image_alt:
+            label: Image Alt text
+            span: right
+          title:
+            label: Headline
+            type: text
+            span: left
+            size: large
+
 section-news:
   name: News
   icon: icon-columns

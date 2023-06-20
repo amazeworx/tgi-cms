@@ -1,0 +1,76 @@
+==
+{#
+ # Initialize variables
+ #}
+
+ {% set content = data.content != '' ? data.content:[] %}
+
+{#
+ # Render
+ #}
+{% spaceless %}
+<section class="py-12 lg:py-24 xl:py-32 bg-slate-100">
+  <div class="container max-w-screen-xl px-4 lg:px-8 mx-auto">
+    <div class="prose mx-auto text-center md:text-center">
+      {% if data.headline %}
+      <h2 class="font-black text-tgi-darkblue text-[2.25rem] lg:text-4xl mb-8 xl:mb-14">{{ data.headline }}</h2>
+      {% endif %}
+    </div>
+    <div id="award-swiper" class="swiper px-2">
+      <div class="swiper-wrapper">
+        {% for block in content %}
+          {% if block.image %}
+          <div class="swiper-slide bg-white rounded-2xl border border-slate-300 overflow-hidden h-auto">
+            <img src="{{ block.image|media }}" alt="{{ block.image_alt }}">
+            {% if block.title %}
+            <div class="px-4 pb-4 text-sm text-center font-semibold">
+              {{ block.title }}
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="container mx-auto py-8 px-4 xl:px-6 xl:py-12">
+        <div class="flex justify-center gap-x-3">
+          <div class="award-button-prev flex w-10 h-10 text-2xl leading-0 rounded-full bg-white items-center justify-center border border-slate-200 hover:shadow-md transition duration-300 active:bg-slate-200"><span class="inline-block -mt-1">&lsaquo;</span></div>
+          <div class="award-button-next flex w-10 h-10 text-2xl leading-0 rounded-full bg-white items-center justify-center border border-slate-200 hover:shadow-md transition duration-300 active:bg-slate-200"><span class="inline-block -mt-1">&rsaquo;</span></div>
+        </div>
+      </div>
+    </div>
+    <script>
+    const awardSwiper = new Swiper('#award-swiper', {
+      watchOverflow: true,
+      autoplay: {
+        delay: 7000,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      //pagination: {
+      //  el: '#award-swiper .swiper-pagination',
+      //},
+      navigation: {
+        nextEl: '#award-swiper .award-button-next',
+        prevEl: '#award-swiper .award-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      },
+    });
+    </script>
+  </div>
+</section>
+{% endspaceless %}
