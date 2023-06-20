@@ -1,0 +1,135 @@
+items:
+    -
+        title: Home
+        type: url
+        url: /
+        code: ''
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'About Us'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: about
+        replace: 0
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Operation & Services'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: operation-services
+        replace: 0
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Corporate Activities'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: corporate-activities
+        replace: 0
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Annual Reports'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: annual-reports
+        replace: 0
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Become Our Customer'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: become-our-customer
+        replace: 0
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: News
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: news
+        replace: 0
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Procurement
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: procurement
+        replace: 0
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Contact Us'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: contact-us
+        replace: 0
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Footer Menu'

@@ -1,0 +1,13 @@
+[viewBag]
+==
+<div class="hidden lg:flex flex-wrap lg:flex-nowrap justify-end gap-4 py-4 lg:py-10 lg:gap-12">
+  <ul class="columns-3 gap-16">
+    {% for item in items %}
+    <li class="mb-3">
+      <a href="{{ item.url }}" class="text-white hover:underline whitespace-nowrap">
+        {{ item.title }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

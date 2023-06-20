@@ -1,0 +1,62 @@
+items:
+    -
+        title: Instagram
+        nesting: false
+        type: url
+        url: 'https://www.instagram.com/transgasindo/'
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: false
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: instagram
+            isExternal: '1'
+    -
+        title: LinkedIn
+        nesting: false
+        type: url
+        url: 'https://id.linkedin.com/company/pt-transportasi-gas-indonesia'
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: false
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: linkedin
+            isExternal: '1'
+    -
+        title: Facebook
+        type: url
+        url: 'https://www.facebook.com/transgasindo/'
+        code: ''
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Twitter
+        type: url
+        url: 'https://twitter.com/pt_transgasindo'
+        code: ''
+        viewBag:
+            locale:
+                id:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Social Media'
