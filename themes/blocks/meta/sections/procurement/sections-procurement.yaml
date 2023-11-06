@@ -31,25 +31,39 @@ section-procurement-list:
         fields:
           postingDate:
             label: Posting Date
-            span: left
+            span: storm
+            cssClass: col-xs-3
             type: datepicker
             mode: date
             format: d M Y
           title:
             label: Title
-            span: right
-            type: text
-            size: large
-          link:
-            label: Document Link
-            span: left
+            span: storm
+            cssClass: col-xs-4
             type: text
             size: large
           dueDate:
             label: Due date information
-            span: right
+            span: storm
+            cssClass: col-xs-5
             type: text
             size: large
+          downloads:
+            type: repeater
+            prompt: Add new pdf
+            style: collapsed
+            form:
+              fields:
+                pdfTitle:
+                  label: PDF Title
+                  span: left
+                  type: text
+                  size: large
+                pdfDocument:
+                  label: PDF Document
+                  type: mediafinder
+                  mode: file
+                  span: right
 section-vendor-registration:
   name: Vendor Registration
   icon: icon-columns
